@@ -54,6 +54,13 @@ function fromSample(p) {
 const loadCatalog = unstable_cache(
   async () => {
     if (!isSupabaseConfigured) {
+      // Never let a live site silently show sample products.
+      if (process.env.NODE_ENV === "production" && process.env.ALLOW_SAMPLE_CATALOG !== "1") {
+        throw new Error(
+          "Supabase is not configured. Add NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY and SUPABASE_SERVICE_ROLE_KEY " +
+            "to your hosting environment variables (Vercel → Project → Settings → Environment Variables), then redeploy."
+        );
+      }
       console.warn("[catalog] Supabase not configured — showing SAMPLE products from src/data/products.json");
       return {
         source: "sample",

@@ -19,7 +19,15 @@ export async function POST(req) {
   const keyId = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
   const secret = process.env.RAZORPAY_KEY_SECRET;
   if (!keyId || !secret) {
-    // Demo mode until Razorpay keys are added to .env.local
+    // Demo checkout (no payment taken) only on your own computer, or when explicitly switched on
+    // with CHECKOUT_DEMO=1 for a private preview. On a live site we never pretend to take an order.
+    const demoAllowed = process.env.NODE_ENV !== "production" || process.env.CHECKOUT_DEMO === "1";
+    if (!demoAllowed) {
+      return NextResponse.json(
+        { error: "Online payments are opening soon. Please message us on WhatsApp to place your order." },
+        { status: 503 }
+      );
+    }
     return NextResponse.json({ demo: true, amount: priced.total * 100, currency: "INR", ...priced });
   }
 
