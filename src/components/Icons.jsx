@@ -1,0 +1,21 @@
+const base = { width: 22, height: 22, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.4, strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": true, focusable: "false" };
+export const SearchIcon = (p) => (<svg {...base} {...p}><circle cx="11" cy="11" r="6.5" /><path d="m20 20-4.2-4.2" /></svg>);
+export const HeartIcon = ({ filled, ...p }) => (<svg {...base} {...p} fill={filled ? "currentColor" : "none"}><path d="M12 20s-7.5-4.6-7.5-10.1A4.4 4.4 0 0 1 12 7.3a4.4 4.4 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20Z" /></svg>);
+export const UserIcon = (p) => (<svg {...base} {...p}><circle cx="12" cy="8" r="3.8" /><path d="M4.5 20.5c1.2-3.6 4-5.5 7.5-5.5s6.3 1.9 7.5 5.5" /></svg>);
+export const BagIcon = (p) => (<svg {...base} {...p}><path d="M5 8h14l-1 12.5H6L5 8Z" /><path d="M9 8V6.5a3 3 0 0 1 6 0V8" /></svg>);
+export const MenuIcon = (p) => (<svg {...base} {...p}><path d="M3.5 7h17M3.5 12h17M3.5 17h17" /></svg>);
+export const CloseIcon = (p) => (<svg {...base} {...p}><path d="M6 6l12 12M18 6 6 18" /></svg>);
+export const PlusIcon = (p) => (<svg {...base} {...p}><path d="M12 5v14M5 12h14" /></svg>);
+export const MinusIcon = (p) => (<svg {...base} {...p}><path d="M5 12h14" /></svg>);
+export const ChevronIcon = (p) => (<svg {...base} {...p}><path d="m9 6 6 6-6 6" /></svg>);
+export const StarIcon = ({ filled = true, ...p }) => (<svg {...base} {...p} fill={filled ? "currentColor" : "none"}><path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8L3.5 9.7l5.9-.9L12 3.5Z" /></svg>);
+export const TrashIcon = (p) => (<svg {...base} {...p}><path d="M4.5 7h15M10 7V4.5h4V7M6.5 7l1 13h9l1-13" /></svg>);
+export const WhatsAppIcon = (p) => (<svg {...base} {...p}><path d="M4 20l1.2-4A8 8 0 1 1 8.4 19L4 20Z" /><path d="M9 9.2c.2 2.6 2.4 5 5.6 5.6l1-1.2-1.8-.9-.8.8c-1-.4-1.9-1.3-2.4-2.4l.8-.8-.9-1.8-1.2 1Z" /></svg>);
+export const InstagramIcon = (p) => (<svg {...base} {...p}><rect x="3.5" y="3.5" width="17" height="17" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.2" cy="6.8" r=".8" fill="currentColor" /></svg>);
+export const FacebookIcon = (p) => (<svg {...base} {...p}><path d="M14.5 8H17V4.5h-2.5A4 4 0 0 0 10.5 8.5V11H8v3.5h2.5V21H14v-6.5h2.6L17 11h-3V9a1 1 0 0 1 1-1Z" /></svg>);
+export const PinterestIcon = (p) => (<svg {...base} {...p}><circle cx="12" cy="12" r="8.5" /><path d="M11 9.5c.5-1.6 4.5-1.8 4.5 1.3 0 2.5-2.6 3.6-3.9 2.2M11.8 11l-2.3 9" /></svg>);
+export const YouTubeIcon = (p) => (<svg {...base} {...p}><rect x="2.8" y="5.5" width="18.4" height="13" rx="3.5" /><path d="m10.2 9.3 4.6 2.7-4.6 2.7V9.3Z" fill="currentColor" /></svg>);
+export const SocialIcon = ({ name, ...p }) => {
+  const M = { Instagram: InstagramIcon, Facebook: FacebookIcon, Pinterest: PinterestIcon, YouTube: YouTubeIcon }[name];
+  return M ? <M {...p} /> : null;
+};

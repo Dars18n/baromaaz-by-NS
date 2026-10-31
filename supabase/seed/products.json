@@ -1,0 +1,1109 @@
+[
+  {
+    "slug": "aira-tie-up-top",
+    "name": "Aira Tie-Up Top",
+    "category": "tops",
+    "price": 899,
+    "mrp": 1799,
+    "added": "2026-06-23",
+    "variants": [
+      {
+        "size": "XS",
+        "stock": 12
+      },
+      {
+        "size": "S",
+        "stock": 13
+      },
+      {
+        "size": "M",
+        "stock": 15
+      },
+      {
+        "size": "L",
+        "stock": 16
+      },
+      {
+        "size": "XL",
+        "stock": 87
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1782249078486-lqlkdypqywe.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1782249078488-qu86ur5puwh.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1782249078488-wvlf0k9toym.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1782249078488-tyoaxtqblv9.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1782249078488-kbmmnvtonf.png"
+    ]
+  },
+  {
+    "slug": "basanti-top",
+    "name": "Basanti Top",
+    "category": "tops",
+    "price": 799,
+    "mrp": 1549,
+    "added": "2026-10-02",
+    "variants": [
+      {
+        "size": "XS",
+        "stock": 24
+      },
+      {
+        "size": "S",
+        "stock": 24
+      },
+      {
+        "size": "M",
+        "stock": 24
+      },
+      {
+        "size": "L",
+        "stock": 24
+      },
+      {
+        "size": "XL",
+        "stock": 24
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1790918461787-ox5a0qg8xb.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1790918461789-gxssfjl0e5.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1790918461789-wurouua6h5.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1790918461789-0wgt4gb8vnv.png"
+    ]
+  },
+  {
+    "slug": "blue-daze-top",
+    "name": "Blue Daze Top",
+    "category": "tops",
+    "price": 799,
+    "mrp": 1599,
+    "added": "2026-09-29",
+    "variants": [
+      {
+        "size": "XS",
+        "stock": 50
+      },
+      {
+        "size": "S",
+        "stock": 50
+      },
+      {
+        "size": "M",
+        "stock": 50
+      },
+      {
+        "size": "L",
+        "stock": 50
+      },
+      {
+        "size": "XL",
+        "stock": 50
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1790662960858-r9mujgnad5.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1790662960859-c3mzl1jzvqk.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1790662960859-y5l5keanlan.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1790662960859-m4hfco7vbhc.png"
+    ]
+  },
+  {
+    "slug": "cherry-bomb-top",
+    "name": "Cherry Bomb Top",
+    "category": "tops",
+    "price": 799,
+    "mrp": 1699,
+    "added": "2026-10-01",
+    "variants": [
+      {
+        "size": "XS",
+        "stock": 30
+      },
+      {
+        "size": "S",
+        "stock": 30
+      },
+      {
+        "size": "M",
+        "stock": 30
+      },
+      {
+        "size": "L",
+        "stock": 30
+      },
+      {
+        "size": "XL",
+        "stock": 30
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1790836512464-8p8wz9dxivq.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1790836512466-d34pgucw3mj.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1790836512466-w8ua32jqe7.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1790836512466-jgkdhyjaz2.png"
+    ]
+  },
+  {
+    "slug": "gulabi-girl-top",
+    "name": "Gulabi Girl Top",
+    "category": "tops",
+    "price": 799,
+    "mrp": 1999,
+    "added": "2026-09-29",
+    "variants": [
+      {
+        "size": "XS",
+        "stock": 50
+      },
+      {
+        "size": "S",
+        "stock": 50
+      },
+      {
+        "size": "M",
+        "stock": 50
+      },
+      {
+        "size": "L",
+        "stock": 50
+      },
+      {
+        "size": "XL",
+        "stock": 50
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1790705390801-q6lu8lt32dh.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1790705390804-exa4hpsplds.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1790705390806-tg7n9fmph7l.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1790705390806-vwrmw2klcr.png"
+    ]
+  },
+  {
+    "slug": "indisky-fitted-top",
+    "name": "IndiSky Fitted Top",
+    "category": "tops",
+    "price": 899,
+    "mrp": 1899,
+    "added": "2026-04-28",
+    "variants": [
+      {
+        "size": "XS",
+        "stock": 59
+      },
+      {
+        "size": "S",
+        "stock": 68
+      },
+      {
+        "size": "M",
+        "stock": 27
+      },
+      {
+        "size": "L",
+        "stock": 55
+      },
+      {
+        "size": "XL",
+        "stock": 56
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1777373441223-2odlhrpf59.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1777373441225-moypekdclro.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1777373441225-w28vjh6c36.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1777373441225-r2hhu9rld6.png"
+    ]
+  },
+  {
+    "slug": "indigo-bloom-top",
+    "name": "Indigo Bloom Top",
+    "category": "tops",
+    "price": 899,
+    "mrp": 1799,
+    "added": "2026-09-01",
+    "variants": [
+      {
+        "size": "XS",
+        "stock": 30
+      },
+      {
+        "size": "S",
+        "stock": 30
+      },
+      {
+        "size": "M",
+        "stock": 30
+      },
+      {
+        "size": "L",
+        "stock": 30
+      },
+      {
+        "size": "XL",
+        "stock": 30
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1788270144400-lr3qqf5k75l.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1788270144403-qcd59d01iti.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1788270144403-yx7yfc2ujw.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1788270144403-t9b86mj8mrq.png"
+    ]
+  },
+  {
+    "slug": "lyra-floral-cotton-top",
+    "name": "Lyra Floral Cotton Top",
+    "category": "tops",
+    "price": 699,
+    "mrp": 1199,
+    "added": "2026-04-27",
+    "variants": [
+      {
+        "size": "XS",
+        "stock": 20
+      },
+      {
+        "size": "S",
+        "stock": 20
+      },
+      {
+        "size": "M",
+        "stock": 20
+      },
+      {
+        "size": "L",
+        "stock": 20
+      },
+      {
+        "size": "XL",
+        "stock": 20
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1777320578850-ih0o512rfz.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1777320578850-g9scq66nqhw.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1777320578850-ahcfvz0ubb9.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1777320578850-9ogkkoa559m.png"
+    ]
+  },
+  {
+    "slug": "mishti-top",
+    "name": "Mishti Top",
+    "category": "tops",
+    "price": 799,
+    "mrp": 1249,
+    "added": "2026-10-02",
+    "variants": [
+      {
+        "size": "XS",
+        "stock": 30
+      },
+      {
+        "size": "S",
+        "stock": 30
+      },
+      {
+        "size": "M",
+        "stock": 30
+      },
+      {
+        "size": "L",
+        "stock": 30
+      },
+      {
+        "size": "XL",
+        "stock": 30
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1790919546500-n9sajfn8qpq.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1790919546501-x78y7rv6pv.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1790919546502-tap6zlnnikq.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1790919546502-gaxhga6axkv.png"
+    ]
+  },
+  {
+    "slug": "myra-muse-wrap-top",
+    "name": "Myra Muse Wrap Top",
+    "category": "tops",
+    "price": 799,
+    "mrp": 1699,
+    "added": "2026-04-27",
+    "variants": [
+      {
+        "size": "XS",
+        "stock": 50
+      },
+      {
+        "size": "S",
+        "stock": 50
+      },
+      {
+        "size": "M",
+        "stock": 50
+      },
+      {
+        "size": "L",
+        "stock": 50
+      },
+      {
+        "size": "XL",
+        "stock": 50
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1777291920767-phjpffz18mk.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1781894042160-ap1pey5vgqk.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1781894042161-rqn2mpxenvj.png"
+    ]
+  },
+  {
+    "slug": "aafreen-corset-back-kurti",
+    "name": "Aafreen Corset Back Kurti",
+    "category": "kurtis",
+    "price": 659,
+    "mrp": 1049,
+    "added": "2026-06-10",
+    "variants": [
+      {
+        "size": "S",
+        "stock": 50
+      },
+      {
+        "size": "M",
+        "stock": 50
+      },
+      {
+        "size": "L",
+        "stock": 50
+      },
+      {
+        "size": "XL",
+        "stock": 50
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1781114996926-w8cqneo5j1.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1781114996929-834gz246rvs.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1781114996929-y1087v5i0x.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1781114996929-u5y2ygs29e9.png"
+    ]
+  },
+  {
+    "slug": "aiyana-v-neck-kurti",
+    "name": "Aiyana V-Neck Kurti",
+    "category": "kurtis",
+    "price": 699,
+    "mrp": 1349,
+    "added": "2026-04-27",
+    "variants": [
+      {
+        "size": "XS",
+        "stock": 24
+      },
+      {
+        "size": "S",
+        "stock": 24
+      },
+      {
+        "size": "M",
+        "stock": 24
+      },
+      {
+        "size": "L",
+        "stock": 24
+      },
+      {
+        "size": "XL",
+        "stock": 24
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1777315691968-rfweyw2uye.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1777315691970-pxn72mr5h1s.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1777315691970-p266rul0f19.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1777315691970-aakfuq36qgk.png"
+    ]
+  },
+  {
+    "slug": "basanti-blues-kurti",
+    "name": "Basanti Blues Kurti",
+    "category": "kurtis",
+    "price": 999,
+    "mrp": 1649,
+    "added": "2026-09-19",
+    "variants": [
+      {
+        "size": "S",
+        "stock": 23
+      },
+      {
+        "size": "M",
+        "stock": 23
+      },
+      {
+        "size": "L",
+        "stock": 24
+      },
+      {
+        "size": "XL",
+        "stock": 25
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1789818731259-dbbd1xs7hq.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1789818731260-07a8jv3dx6wx.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1789818731260-rhwnpftenua.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1789818731260-fz1h61e75kq.png"
+    ]
+  },
+  {
+    "slug": "falak-t-shirt-kurti",
+    "name": "Falak T-shirt Kurti",
+    "category": "kurtis",
+    "price": 599,
+    "mrp": 1199,
+    "added": "2026-04-23",
+    "variants": [
+      {
+        "size": "XS",
+        "stock": 50
+      },
+      {
+        "size": "S",
+        "stock": 50
+      },
+      {
+        "size": "M",
+        "stock": 50
+      },
+      {
+        "size": "L",
+        "stock": 50
+      },
+      {
+        "size": "XL",
+        "stock": 50
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1776982327616-eollu7gbg9.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1776981333693-i81uy035sb.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1776982356423-ciklvochb8n.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1778647640520-8wc1gsph1gt.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1778647692111-d238ygjnrxl.png"
+    ]
+  },
+  {
+    "slug": "naaz-long-kurti",
+    "name": "Naaz Long Kurti",
+    "category": "kurtis",
+    "price": 859,
+    "mrp": 2149,
+    "added": "2026-07-12",
+    "variants": [
+      {
+        "size": "S",
+        "stock": 10
+      },
+      {
+        "size": "M",
+        "stock": 10
+      },
+      {
+        "size": "L",
+        "stock": 10
+      },
+      {
+        "size": "XL",
+        "stock": 10
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1783833279962-5tfr67kmc9j.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1783833279965-fyu0h5dui9.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1783833279965-fs5b45k0iq.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1783833279965-4833jwshk0k.png"
+    ]
+  },
+  {
+    "slug": "ruhani-cotton-kurta",
+    "name": "Ruhani Cotton Kurta",
+    "category": "kurtis",
+    "price": 699,
+    "mrp": 1599,
+    "added": "2026-07-03",
+    "variants": [
+      {
+        "size": "S",
+        "stock": 23
+      },
+      {
+        "size": "M",
+        "stock": 23
+      },
+      {
+        "size": "L",
+        "stock": 23
+      },
+      {
+        "size": "XL",
+        "stock": 23
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1783099471825-bme4wpjfs3.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1783099471828-7imaph93ka8.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1783099471828-nv7qvqe4t1.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1783099471828-7xa8ap3akyq.png"
+    ]
+  },
+  {
+    "slug": "tina-corset-back-kurti",
+    "name": "Tina Corset Back Kurti",
+    "category": "kurtis",
+    "price": 699,
+    "mrp": 1399,
+    "added": "2026-06-10",
+    "variants": [
+      {
+        "size": "S",
+        "stock": 50
+      },
+      {
+        "size": "M",
+        "stock": 50
+      },
+      {
+        "size": "L",
+        "stock": 50
+      },
+      {
+        "size": "XL",
+        "stock": 50
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1781113654227-ds4vl0ptvz.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1781113654229-qtj3t1rjm0r.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1781113654229-q84ns3iwyg.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1781113654229-tr0pf7nf5v.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1781113654229-plvsxmyu8yn.png"
+    ]
+  },
+  {
+    "slug": "black-ember-cotton-dress",
+    "name": "Black Ember Cotton Dress",
+    "category": "dresses",
+    "price": 1099,
+    "mrp": 2199,
+    "added": "2026-09-19",
+    "variants": [
+      {
+        "size": "XS",
+        "stock": 5
+      },
+      {
+        "size": "S",
+        "stock": 5
+      },
+      {
+        "size": "M",
+        "stock": 5
+      },
+      {
+        "size": "L",
+        "stock": 5
+      },
+      {
+        "size": "XL",
+        "stock": 5
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1789794203189-13tku4n8wpq.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1789794203190-6dnnj1g2dpk.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1789794203190-a615hemdyl4.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1789794203190-tk2ohk8m2vm.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1789794203190-amf3zfo58a4.png"
+    ]
+  },
+  {
+    "slug": "kiara-petal-dress",
+    "name": "Kiara Petal Dress",
+    "category": "dresses",
+    "price": 599,
+    "mrp": 1199,
+    "added": "2026-04-27",
+    "variants": [
+      {
+        "size": "XS",
+        "stock": 25
+      },
+      {
+        "size": "S",
+        "stock": 25
+      },
+      {
+        "size": "M",
+        "stock": 25
+      },
+      {
+        "size": "L",
+        "stock": 25
+      },
+      {
+        "size": "XL",
+        "stock": 25
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1777316267656-mb3eox4ejtn.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1777316225471-ygvg1qo4oq.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1777316267657-07lo55ngodjj.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1777316267657-h2qwt1b3b4b.png"
+    ]
+  },
+  {
+    "slug": "mehar-backless-dress",
+    "name": "Mehar Backless Dress",
+    "category": "dresses",
+    "price": 1499,
+    "mrp": 2449,
+    "added": "2026-09-07",
+    "variants": [
+      {
+        "size": "XS",
+        "stock": 30
+      },
+      {
+        "size": "S",
+        "stock": 30
+      },
+      {
+        "size": "M",
+        "stock": 30
+      },
+      {
+        "size": "L",
+        "stock": 30
+      },
+      {
+        "size": "XL",
+        "stock": 30
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1788789271974-e9gzi6l5vsj.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1788789271976-m6y1s4sv3u.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1788789271976-goq2g46v8ps.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1788789271976-5qwyzsmrf3s.png"
+    ]
+  },
+  {
+    "slug": "moon-short-dress",
+    "name": "Moon Short Dress",
+    "category": "dresses",
+    "price": 699,
+    "mrp": 1749,
+    "added": "2026-10-07",
+    "variants": [
+      {
+        "size": "XS",
+        "stock": 23
+      },
+      {
+        "size": "S",
+        "stock": 23
+      },
+      {
+        "size": "M",
+        "stock": 23
+      },
+      {
+        "size": "L",
+        "stock": 23
+      },
+      {
+        "size": "XL",
+        "stock": 23
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1791398602753-2lcguz2uee4.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1791398602754-luz838l3ycm.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1791398602754-yn63ee58xar.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1791398602754-u5eqiejra1.png"
+    ]
+  },
+  {
+    "slug": "strawberry-kiss-dress",
+    "name": "Strawberry Kiss Dress",
+    "category": "dresses",
+    "price": 799,
+    "mrp": 1399,
+    "added": "2026-09-05",
+    "variants": [
+      {
+        "size": "XS",
+        "stock": 34
+      },
+      {
+        "size": "S",
+        "stock": 34
+      },
+      {
+        "size": "M",
+        "stock": 35
+      },
+      {
+        "size": "L",
+        "stock": 35
+      },
+      {
+        "size": "XL",
+        "stock": 35
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1788603551210-f0846b4zlxu.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1788603551211-2f6s01oozzb.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1788603551211-7pq5g08knba.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1788603551211-2efyerxy2xq.png"
+    ]
+  },
+  {
+    "slug": "aamras-co-ord-set",
+    "name": "Aamras Co-ord Set",
+    "category": "corsets",
+    "price": 1299,
+    "mrp": 2199,
+    "added": "2026-10-22",
+    "variants": [
+      {
+        "size": "XS",
+        "stock": 12
+      },
+      {
+        "size": "S",
+        "stock": 12
+      },
+      {
+        "size": "M",
+        "stock": 12
+      },
+      {
+        "size": "L",
+        "stock": 12
+      },
+      {
+        "size": "XL",
+        "stock": 12
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1792668622603-pg9lbye8oor.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1792668622603-l05yw9iau9.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1792668622603-vj2s6q5mwr8.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1792668622603-3nb3l25xo3m.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1792668622603-5oraso7xu8n.png"
+    ]
+  },
+  {
+    "slug": "bubble-trouble-co-ord-set",
+    "name": "Bubble Trouble Co-ord Set",
+    "category": "corsets",
+    "price": 1299,
+    "mrp": 2599,
+    "added": "2026-10-22",
+    "variants": [
+      {
+        "size": "XS",
+        "stock": 12
+      },
+      {
+        "size": "S",
+        "stock": 12
+      },
+      {
+        "size": "M",
+        "stock": 12
+      },
+      {
+        "size": "L",
+        "stock": 12
+      },
+      {
+        "size": "XL",
+        "stock": 12
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1792663495120-dsosmxo35da.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1792663495120-bwibov2e4uw.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1792663495120-w1ymkp2834.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1792663495120-itshxt4j0j.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1792663495120-xzht4ktn15.png"
+    ]
+  },
+  {
+    "slug": "candy-waves-co-ord-set",
+    "name": "Candy Waves Co-ord Set",
+    "category": "corsets",
+    "price": 1299,
+    "mrp": 3249,
+    "added": "2026-10-22",
+    "variants": [
+      {
+        "size": "XS",
+        "stock": 15
+      },
+      {
+        "size": "S",
+        "stock": 15
+      },
+      {
+        "size": "M",
+        "stock": 15
+      },
+      {
+        "size": "L",
+        "stock": 15
+      },
+      {
+        "size": "XL",
+        "stock": 15
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1792670581338-xfsxf672cqc.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1792670581339-xx1uypbps4.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1792670581339-47ff8lwuduj.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1792670581340-tw16xcdz8t.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1792670581340-e8pa444f8ks.png"
+    ]
+  },
+  {
+    "slug": "indie-wrap-co-ord-set",
+    "name": "Indie Wrap Co-ord Set",
+    "category": "corsets",
+    "price": 1599,
+    "mrp": 2799,
+    "added": "2026-07-20",
+    "variants": [
+      {
+        "size": "XS",
+        "stock": 30
+      },
+      {
+        "size": "S",
+        "stock": 30
+      },
+      {
+        "size": "M",
+        "stock": 30
+      },
+      {
+        "size": "L",
+        "stock": 30
+      },
+      {
+        "size": "XL",
+        "stock": 30
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1784553441872-7gup5pl6824.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1784553441873-n783bq0vtp.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1784553441873-eup76dfiout.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1784553441873-i20d13vge3p.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1784553441873-mtt3q926fv.png"
+    ]
+  },
+  {
+    "slug": "lehar-co-ord",
+    "name": "Lehar Co-ord",
+    "category": "corsets",
+    "price": 1259,
+    "mrp": 3149,
+    "added": "2026-09-19",
+    "variants": [
+      {
+        "size": "XS",
+        "stock": 40
+      },
+      {
+        "size": "S",
+        "stock": 40
+      },
+      {
+        "size": "M",
+        "stock": 40
+      },
+      {
+        "size": "L",
+        "stock": 40
+      },
+      {
+        "size": "XL",
+        "stock": 40
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1789807301526-necfhcmano.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1789807301528-v611bwy9gde.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1789807301528-7qwmqommzvc.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1789807301528-p2yyjip7r2a.png"
+    ]
+  },
+  {
+    "slug": "rose-wrap-co-ord",
+    "name": "Rosé Wrap Co-ord",
+    "category": "corsets",
+    "price": 1599,
+    "mrp": 3199,
+    "added": "2026-07-20",
+    "variants": [
+      {
+        "size": "XS",
+        "stock": 35
+      },
+      {
+        "size": "S",
+        "stock": 35
+      },
+      {
+        "size": "M",
+        "stock": 35
+      },
+      {
+        "size": "L",
+        "stock": 35
+      },
+      {
+        "size": "XL",
+        "stock": 35
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1784548317666-og48ieomvz.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1784548317668-cajyveq0js9.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1784548317668-bozhrmsimhu.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1784548317668-m66k8d16ub.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1784548317668-8j2xdjug88.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1784548317668-sadob5abig.png"
+    ]
+  },
+  {
+    "slug": "gulabo-co-ord-set",
+    "name": "Gulabo Co-ord Set",
+    "category": "festive",
+    "price": 1299,
+    "mrp": 2749,
+    "added": "2026-09-19",
+    "variants": [
+      {
+        "size": "XS",
+        "stock": 24
+      },
+      {
+        "size": "S",
+        "stock": 24
+      },
+      {
+        "size": "M",
+        "stock": 24
+      },
+      {
+        "size": "L",
+        "stock": 24
+      },
+      {
+        "size": "XL",
+        "stock": 24
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1789817042748-52l0lyp4t59.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1789817042749-qsl4flruhkt.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1789817042749-rko2qauycad.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1789817042749-6cx2mycrmm8.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1789817042749-ztkod7myf0j.png"
+    ]
+  },
+  {
+    "slug": "laal-ishq-set",
+    "name": "Laal Ishq Set",
+    "category": "festive",
+    "price": 1999,
+    "mrp": 3349,
+    "added": "2026-10-14",
+    "variants": [
+      {
+        "size": "XS",
+        "stock": 25
+      },
+      {
+        "size": "S",
+        "stock": 25
+      },
+      {
+        "size": "M",
+        "stock": 25
+      },
+      {
+        "size": "L",
+        "stock": 25
+      },
+      {
+        "size": "XL",
+        "stock": 25
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1791979732978-m0mbgve3dx.jpeg",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1791979732980-4e1k12yla8k.jpeg",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1791979732980-8ubgzbopeii.jpeg",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1791979732980-oxqdasdbyh.jpeg",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1791979732980-0wxqjz61621.jpeg"
+    ]
+  },
+  {
+    "slug": "rangrez-skirt-set",
+    "name": "Rangrez Skirt Set",
+    "category": "festive",
+    "price": 2299,
+    "mrp": 3549,
+    "added": "2026-09-19",
+    "variants": [
+      {
+        "size": "XS",
+        "stock": 1
+      },
+      {
+        "size": "S",
+        "stock": 1
+      },
+      {
+        "size": "M",
+        "stock": 1
+      },
+      {
+        "size": "L",
+        "stock": 1
+      },
+      {
+        "size": "XL",
+        "stock": 1
+      }
+    ],
+    "images": [
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1789811071844-bqutn65jc99.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1789811071845-em7dc2d646j.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1789811071845-z7mq4uvo9mn.png",
+      "https://mvevympokwdttqwmylig.supabase.co/storage/v1/object/public/products/1789811071845-fjvty728vuu.png"
+    ]
+  }
+]

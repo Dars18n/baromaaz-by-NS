@@ -1,0 +1,82 @@
+import "@fontsource/cormorant-garamond/500.css";
+import "@fontsource/cormorant-garamond/600.css";
+import "@fontsource/cormorant-garamond/500-italic.css";
+import "@fontsource/jost/400.css";
+import "@fontsource/jost/500.css";
+import "@fontsource/federo/400.css";
+import "@fontsource/pinyon-script/400.css";
+import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import CartDrawer from "@/components/CartDrawer";
+import { StoreProvider } from "@/components/StoreProvider";
+import { SITE, absoluteUrl, formatAddress } from "@/lib/site";
+import { getCategories, getProductIndex } from "@/lib/catalog";
+
+export const revalidate = 60;
+
+export const metadata = {
+  metadataBase: new URL(SITE.url),
+  title: { default: `Baromaaz — ${SITE.tagline} | Handcrafted Indo-Western Wear`, template: "%s | Baromaaz" },
+  description: SITE.description,
+  applicationName: "Baromaaz",
+  keywords: ["Baromaaz", "Indian ethnic fusion", "handcrafted kurtis", "corsets", "co-ord sets", "festive wear", "Maharashtra", "monthly drop"],
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    siteName: "Baromaaz",
+    locale: SITE.locale,
+    url: "/",
+    title: `Baromaaz — ${SITE.tagline}`,
+    description: SITE.description,
+    images: [{ url: SITE.ogImage, width: 1200, height: 630, alt: "Baromaaz — Har Mahina, Naya Libaas" }],
+  },
+  twitter: { card: "summary_large_image", title: `Baromaaz — ${SITE.tagline}`, description: SITE.description, images: [SITE.ogImage] },
+  robots: { index: true, follow: true },
+  formatDetection: { telephone: false },
+};
+
+export const viewport = { themeColor: "#f8f3ec", width: "device-width", initialScale: 1, viewportFit: "cover" };
+
+const orgJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ClothingStore",
+  name: "Baromaaz",
+  slogan: SITE.tagline,
+  url: SITE.url,
+  logo: absoluteUrl("/icon.png"),
+  image: absoluteUrl(SITE.ogImage),
+  email: SITE.email,
+  telephone: SITE.phone,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: `${SITE.address.line1}, ${SITE.address.line2}`,
+    addressLocality: SITE.address.city,
+    addressRegion: SITE.address.state,
+    postalCode: SITE.address.pincode,
+    addressCountry: "IN",
+  },
+  sameAs: SITE.social.map((s) => s.href),
+  description: `${SITE.description} Studio: ${formatAddress()}.`,
+};
+
+export default async function RootLayout({ children }) {
+  const [productIndex, categories] = await Promise.all([getProductIndex(), getCategories()]);
+  return (
+    <html lang="en-IN">
+      <head>
+        <noscript><style>{`.reveal{opacity:1!important;transform:none!important}`}</style></noscript>
+      </head>
+      <body>
+        <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[100] focus:bg-ink focus:px-4 focus:py-2 focus:text-ivory">Skip to content</a>
+        <StoreProvider products={productIndex}>
+          <Header categories={categories} />
+          <main id="main">{children}</main>
+          <Footer categories={categories} />
+          <CartDrawer />
+        </StoreProvider>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
+      </body>
+    </html>
+  );
+}
