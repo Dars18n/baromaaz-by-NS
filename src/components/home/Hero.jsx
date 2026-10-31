@@ -5,16 +5,20 @@ import Logo from "../Logo";
 export default function Hero() {
   return (
     <section className="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-[#5a2c1e] text-ivory">
-      <img
-        src="/images/hero/hero-courtyard.webp"
-        width="1672"
-        height="941"
-        alt="Three women in a sunlit sandstone courtyard with jasmine garlands — one in a floral crop top with jeans, one in a floral printed kurta, and one in a dusty-rose anarkali with dupatta"
-        fetchPriority="high"
-        decoding="async"
-        className="absolute inset-0 -z-10 h-full w-full animate-fadeIn object-cover object-[46%_center] md:object-[center_30%]"
-      />
-      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-t from-black/85 from-10% via-black/45 via-50% to-black/35" />
+      {/* Phones (under 768px) get the portrait photo; tablets and computers get the three-women photo. */}
+      <picture>
+        <source media="(max-width: 767px)" srcSet="/images/hero/hero-phone.webp" width="1000" height="1379" />
+        <img
+          src="/images/hero/hero-courtyard.webp"
+          width="1672"
+          height="941"
+          alt="Women wearing Baromaaz handcrafted ethnic-fusion outfits — embroidered kurtas, floral prints and an anarkali with dupatta"
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 -z-10 h-full w-full animate-fadeIn object-cover object-[60%_center] md:object-[center_30%]"
+        />
+      </picture>
+      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-t from-black/80 from-5% via-black/20 via-55% to-black/10 md:from-black/85 md:from-10% md:via-black/45 md:via-50% md:to-black/35" />
       <div aria-hidden="true" className="absolute inset-0 -z-10 hidden bg-gradient-to-r from-black/50 via-black/10 via-50% to-transparent md:block" />
       <div className="container-x pb-14 pt-32 md:pb-16">
         <div className="max-w-xl">
