@@ -56,6 +56,10 @@ export const SITE = {
       "Seven festive-ready pieces in deep maroon, antique gold and earth — hand-finished in our Pune studio, in limited numbers. When they're gone, they're gone.",
   },
 
+  // "12 Months. 12 Drops." — choose the piece shown for any month (1 = January … 12 = December).
+  // Use the product's URL name, e.g.  5: "kiara-petal-dress".  Months left out are filled automatically.
+  monthlyFeatured: {},
+
   // Festive extras — set diwali to false after the festival to switch the fireworks off
   festive: {
     diwali: true,

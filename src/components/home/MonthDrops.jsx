@@ -107,6 +107,11 @@ export default function MonthDrops({ year, months, startKey }) {
                         View Details <span aria-hidden="true">→</span>
                       </Link>
                     </div>
+                    {m.count === 0 && (
+                      <Link href="/shop" className="mt-3 inline-block py-1 text-xs uppercase tracking-[0.14em] text-ivory/85 underline underline-offset-4">
+                        Explore the collection
+                      </Link>
+                    )}
                     {m.count > 1 && (
                       <Link href={`/shop?month=${m.key}`} className="mt-3 inline-block py-1 text-xs uppercase tracking-[0.14em] text-ivory/85 underline underline-offset-4">
                         +{m.count - 1} more from the {m.short.charAt(0) + m.short.slice(1).toLowerCase()} drop
@@ -131,7 +136,7 @@ export default function MonthDrops({ year, months, startKey }) {
               {months.map((mo, k) => {
                 const active = k === i;
                 return (
-                  <button key={mo.key} data-key={mo.key} type="button" onClick={() => go(k)} aria-pressed={active} aria-label={`${mo.name}${mo.status === "upcoming" ? " — coming soon" : ` — ${mo.count} ${mo.count === 1 ? "piece" : "pieces"}`}`} className="flex w-[62px] shrink-0 flex-col items-center gap-1.5">
+                  <button key={mo.key} data-key={mo.key} type="button" onClick={() => go(k)} aria-pressed={active} aria-label={`${mo.name}${mo.status === "upcoming" ? " — coming soon" : mo.count ? ` — ${mo.count} ${mo.count === 1 ? "piece" : "pieces"}` : ""}`} className="flex w-[62px] shrink-0 flex-col items-center gap-1.5">
                     <span className={`block overflow-hidden rounded-full transition-all duration-300 ${active ? "h-[60px] w-[60px] ring-[3px] ring-terracotta ring-offset-2 ring-offset-ivory" : "h-[54px] w-[54px] opacity-80 hover:opacity-100"}`}>
                       {mo.status === "live" ? (
                         <Img src={mo.featured.image} alt="" width={200} height={250} className="h-full w-full object-cover object-top" />

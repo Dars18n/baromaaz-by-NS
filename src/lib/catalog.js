@@ -2,6 +2,7 @@ import "server-only";
 import { unstable_cache } from "next/cache";
 import { supabase, isSupabaseConfigured } from "./supabase";
 import { SIZES } from "./sizes";
+import { SITE } from "./site";
 import sampleProducts from "@/data/products.json";
 import sampleCategories from "@/data/categories.json";
 import looks from "@/data/looks.json";
@@ -172,27 +173,57 @@ function nowInIndia() {
 }
 
 // One entry per month of the current year. A product belongs to the month it was added.
-// Past months with no products are left out; future months are shown as "coming soon".
+// Past months with no new products are filled with a different piece from the collection,
+// so all months up to now are shown; future months appear as "coming soon".
 export async function getMonthlyDrops() {
   const { year, month: current } = nowInIndia();
   const all = await getProducts();
+  const bySlug = Object.fromEntries(all.map((p) => [p.slug, p]));
+  const card = (p) => ({ slug: p.slug, name: p.name, price: p.price, mrp: p.mrp, image: p.images[0] });
+  const overrides = SITE.monthlyFeatured || {};
+  const used = new Set();
+
   const months = MONTHS.map((name, i) => {
-    const key = `${year}-${String(i + 1).padStart(2, "0")}`;
+    const number = i + 1;
+    const key = `${year}-${String(number).padStart(2, "0")}`;
     const items = all
       .filter((p) => p.added?.startsWith(key))
       .sort((a, b) => Number(b.mostWanted) - Number(a.mostWanted) || b.added.localeCompare(a.added));
+    const chosen = bySlug[overrides[number]];
+    const featured = chosen || items[0] || null;
+    if (featured) used.add(featured.slug);
     return {
-      key,
-      number: i + 1,
-      name,
+      key, number, name,
       short: name.slice(0, 3).toUpperCase(),
-      status: items.length ? "live" : i + 1 > current ? "upcoming" : "none",
+      status: items.length || chosen ? "live" : number > current ? "upcoming" : "fill",
       count: items.length,
-      featured: items[0] ? { slug: items[0].slug, name: items[0].name, price: items[0].price, mrp: items[0].mrp, image: items[0].images[0] } : null,
+      featured: featured ? card(featured) : null,
     };
   });
+
+  // Fill empty past months with unused pieces, rotating through categories for variety.
+  const pool = byNewest(all).filter((p) => !used.has(p.slug) && p.images[0] && !p.images[0].includes("placeholder"));
+  const cats = [...new Set(pool.map((p) => p.category))];
+  let c = 0;
+  for (const m of months) {
+    if (m.status !== "fill") continue;
+    let pick = null;
+    for (let tries = 0; tries < cats.length && !pick; tries++, c++) {
+      const cat = cats[c % cats.length];
+      pick = pool.find((p) => p.category === cat && !used.has(p.slug));
+    }
+    pick = pick || pool.find((p) => !used.has(p.slug));
+    if (pick) {
+      used.add(pick.slug);
+      c++;
+      m.featured = card(pick);
+      m.status = "live";
+    } else {
+      m.status = "none";
+    }
+  }
+
   const shown = months.filter((m) => m.status !== "none");
-  // open on the current month if it has a drop, otherwise the most recent drop
   const live = shown.filter((m) => m.status === "live");
   const start = live.find((m) => m.number === current) || live.filter((m) => m.number <= current).pop() || live[0] || shown[0];
   return { year, months: shown, startKey: start?.key ?? null };
