@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SITE } from "@/lib/site";
 import Logo from "../Logo";
+import Fireworks from "./Fireworks";
 
 export default function Hero() {
   return (
@@ -19,6 +20,7 @@ export default function Hero() {
         />
       </picture>
       <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-t from-black/80 from-5% via-black/20 via-55% to-black/10 md:from-black/85 md:from-10% md:via-black/45 md:via-50% md:to-black/35" />
+      {SITE.festive?.diwali && <Fireworks />}
       <div aria-hidden="true" className="absolute inset-0 -z-10 hidden bg-gradient-to-r from-black/50 via-black/10 via-50% to-transparent md:block" />
       <div className="container-x pb-14 pt-32 md:pb-16">
         <div className="max-w-xl">

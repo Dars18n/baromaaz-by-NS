@@ -56,6 +56,11 @@ export const SITE = {
       "Seven festive-ready pieces in deep maroon, antique gold and earth — hand-finished in our Pune studio, in limited numbers. When they're gone, they're gone.",
   },
 
+  // Festive extras — set diwali to false after the festival to switch the fireworks off
+  festive: {
+    diwali: true,
+  },
+
   freeShippingAbove: 1499,
   shippingFee: 99,
 };
