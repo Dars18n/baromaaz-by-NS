@@ -40,7 +40,7 @@ export default function ProductActions({ product }) {
   // leave room at the page bottom so the bar never hides the footer on phones
   useEffect(() => {
     const phone = window.matchMedia("(max-width: 767px)").matches;
-    document.body.style.paddingBottom = showBar && phone ? "80px" : "";
+    document.body.style.paddingBottom = showBar && phone ? "calc(9rem + env(safe-area-inset-bottom))" : "";
   }, [showBar]);
 
   const barAdd = () => {
@@ -74,7 +74,7 @@ export default function ProductActions({ product }) {
         <button type="button" className="btn-terra col-span-2" disabled={soldOut} onClick={() => { if (requireSize()) { addToCart(product.slug, size, 1, { open: false }); router.push("/checkout"); } }}>Buy now</button>
       </div>
       {showBar && !soldOut && (
-        <div className="fixed inset-x-0 bottom-0 z-40 flex animate-fadeIn items-center gap-3 border-t border-ink/10 bg-ivory/95 px-4 py-3 shadow-[0_-4px_20px_rgba(0,0,0,0.06)] backdrop-blur md:hidden" style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}>
+        <div className="fixed inset-x-0 bottom-[calc(4rem+env(safe-area-inset-bottom))] z-30 flex animate-fadeIn items-center gap-3 border-t border-ink/10 bg-ivory/95 px-4 py-3 shadow-[0_-4px_20px_rgba(0,0,0,0.06)] backdrop-blur md:hidden">
           <div className="min-w-0 flex-1">
             <p className="truncate text-sm font-medium">{product.name}</p>
             <p className="text-sm text-ink-soft">{formatPrice(product.price)}{size ? ` · Size ${size}` : ""}</p>

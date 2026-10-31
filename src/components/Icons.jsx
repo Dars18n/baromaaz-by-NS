@@ -19,3 +19,6 @@ export const SocialIcon = ({ name, ...p }) => {
   const M = { Instagram: InstagramIcon, Facebook: FacebookIcon, Pinterest: PinterestIcon, YouTube: YouTubeIcon }[name];
   return M ? <M {...p} /> : null;
 };
+export const HomeIcon = (p) => (<svg {...base} {...p}><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-4.5v-6h-5v6H5a1 1 0 0 1-1-1v-9.5Z" /></svg>);
+export const ShopBagIcon = (p) => (<svg {...base} {...p}><rect x="4.5" y="6.5" width="15" height="14" rx="2.5" /><path d="M9 6.5V6a3 3 0 0 1 6 0v.5M9 11a3 3 0 0 0 6 0" /></svg>);
+export const CartIcon = (p) => (<svg {...base} {...p}><path d="M3 4h2.2l2.2 11h10.4l2-8H6.3" /><circle cx="9" cy="19" r="1.4" fill="currentColor" /><circle cx="17" cy="19" r="1.4" fill="currentColor" /></svg>);

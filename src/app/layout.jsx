@@ -9,6 +9,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CartDrawer from "@/components/CartDrawer";
+import BottomNav from "@/components/BottomNav";
 import { StoreProvider } from "@/components/StoreProvider";
 import { SITE, absoluteUrl, formatAddress } from "@/lib/site";
 import { getCategories, getProductIndex } from "@/lib/catalog";
@@ -67,13 +68,14 @@ export default async function RootLayout({ children }) {
       <head>
         <noscript><style>{`.reveal{opacity:1!important;transform:none!important}`}</style></noscript>
       </head>
-      <body>
+      <body className="pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-0">
         <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[100] focus:bg-ink focus:px-4 focus:py-2 focus:text-ivory">Skip to content</a>
         <StoreProvider products={productIndex}>
           <Header categories={categories} />
           <main id="main">{children}</main>
           <Footer categories={categories} />
           <CartDrawer />
+          <BottomNav />
         </StoreProvider>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
       </body>
