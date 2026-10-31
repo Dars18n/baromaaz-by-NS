@@ -5,14 +5,15 @@ import MonthlyDrop from "@/components/home/MonthlyDrop";
 import ProductTabs from "@/components/home/ProductTabs";
 import ShopTheLook from "@/components/home/ShopTheLook";
 import NewsletterBand from "@/components/home/NewsletterBand";
-import { dropProducts, getLooks, getProducts, mostWanted, newArrivals } from "@/lib/catalog";
+import MonthDrops from "@/components/home/MonthDrops";
+import { dropProducts, getLooks, getMonthlyDrops, getProducts, mostWanted, newArrivals } from "@/lib/catalog";
 
 export const revalidate = 60;
 
 export const metadata = { alternates: { canonical: "/" } };
 
 export default async function HomePage() {
-  const [all, drop, fresh, wanted, looks] = await Promise.all([getProducts(), dropProducts(), newArrivals(8), mostWanted(8), getLooks()]);
+  const [all, drop, fresh, wanted, looks, monthly] = await Promise.all([getProducts(), dropProducts(), newArrivals(8), mostWanted(8), getLooks(), getMonthlyDrops()]);
   const bySlug = Object.fromEntries(all.map((p) => [p.slug, p]));
   const tabs = [
     { id: "new", label: "New Arrivals", products: fresh, href: "/new-in", cta: "Shop all new in" },
@@ -23,6 +24,7 @@ export default async function HomePage() {
       <Hero />
       <TrustStrip />
       <CategoryScroller />
+      {monthly.months.length > 0 && <MonthDrops year={monthly.year} months={monthly.months} startKey={monthly.startKey} />}
       {drop.length > 0 && <MonthlyDrop products={drop} />}
       {fresh.length > 0 && <ProductTabs tabs={tabs} />}
       {looks.length > 0 && <ShopTheLook looks={looks} productsBySlug={bySlug} />}

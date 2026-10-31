@@ -161,3 +161,39 @@ export async function getProductIndex() {
     stock: p.stock,
   }));
 }
+
+// ─────────── "12 months, 12 drops" ───────────
+const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+// Current year + month in India (the site's home time zone).
+function nowInIndia() {
+  const parts = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Kolkata", year: "numeric", month: "2-digit" }).formatToParts(new Date());
+  return { year: Number(parts.find((p) => p.type === "year").value), month: Number(parts.find((p) => p.type === "month").value) };
+}
+
+// One entry per month of the current year. A product belongs to the month it was added.
+// Past months with no products are left out; future months are shown as "coming soon".
+export async function getMonthlyDrops() {
+  const { year, month: current } = nowInIndia();
+  const all = await getProducts();
+  const months = MONTHS.map((name, i) => {
+    const key = `${year}-${String(i + 1).padStart(2, "0")}`;
+    const items = all
+      .filter((p) => p.added?.startsWith(key))
+      .sort((a, b) => Number(b.mostWanted) - Number(a.mostWanted) || b.added.localeCompare(a.added));
+    return {
+      key,
+      number: i + 1,
+      name,
+      short: name.slice(0, 3).toUpperCase(),
+      status: items.length ? "live" : i + 1 > current ? "upcoming" : "none",
+      count: items.length,
+      featured: items[0] ? { slug: items[0].slug, name: items[0].name, price: items[0].price, mrp: items[0].mrp, image: items[0].images[0] } : null,
+    };
+  });
+  const shown = months.filter((m) => m.status !== "none");
+  // open on the current month if it has a drop, otherwise the most recent drop
+  const live = shown.filter((m) => m.status === "live");
+  const start = live.find((m) => m.number === current) || live.filter((m) => m.number <= current).pop() || live[0] || shown[0];
+  return { year, months: shown, startKey: start?.key ?? null };
+}

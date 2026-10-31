@@ -33,6 +33,8 @@ export default function ShopView({ products, categories = [], lockedCategory = n
   const prices = list(params.get("price"));
   const sort = params.get("sort") || defaultSort;
   const q = (params.get("q") || "").trim().toLowerCase();
+  const month = /^\d{4}-\d{2}$/.test(params.get("month") || "") ? params.get("month") : null;
+  const monthLabel = month ? new Date(`${month}-01T00:00:00`).toLocaleDateString("en-IN", { month: "long", year: "numeric" }) : null;
 
   useEffect(() => {
     document.body.style.overflow = panelOpen ? "hidden" : "";
@@ -55,6 +57,7 @@ export default function ShopView({ products, categories = [], lockedCategory = n
       if (cats.length && !cats.includes(p.category)) return false;
       if (sizes.length && !sizes.some((s) => (p.stock?.[s] ?? 0) > 0)) return false;
       if (prices.length && !prices.some((id) => { const r = PRICE_RANGES.find((x) => x.id === id); return r && p.price >= r.min && p.price <= r.max; })) return false;
+      if (month && !p.added?.startsWith(month)) return false;
       if (q && !`${p.name} ${p.color} ${p.fabric} ${p.category}`.toLowerCase().includes(q)) return false;
       return true;
     });
@@ -62,7 +65,7 @@ export default function ShopView({ products, categories = [], lockedCategory = n
     if (sort === "price-asc") out = [...out].sort((a, b) => a.price - b.price);
     if (sort === "price-desc") out = [...out].sort((a, b) => b.price - a.price);
     return out;
-  }, [products, cats.join(), sizes.join(), prices.join(), sort, q]);
+  }, [products, cats.join(), sizes.join(), prices.join(), sort, q, month]);
 
   const activeCount = (lockedCategory ? 0 : cats.length) + sizes.length + prices.length;
 
@@ -103,6 +106,12 @@ export default function ShopView({ products, categories = [], lockedCategory = n
 
   return (
     <div className="container-x">
+      {monthLabel && (
+        <p className="mb-6 text-[15px]">
+          Showing the <strong className="font-medium">{monthLabel}</strong> drop ·{" "}
+          <Link href={pathname} className="underline underline-offset-4">see everything</Link>
+        </p>
+      )}
       {q && (
         <p className="mb-6 text-[15px]">
           Showing results for &ldquo;<strong className="font-medium">{params.get("q")}</strong>&rdquo; ·{" "}
