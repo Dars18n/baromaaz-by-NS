@@ -121,8 +121,14 @@ export async function dropProducts(n = 7) {
   const flagged = all.filter((p) => p.drop);
   return flagged.length ? flagged : byNewest(all).slice(0, n);
 }
+// Hand-picked "most_wanted" products first; if none are picked yet,
+// the pieces with the fewest units left (i.e. selling fastest) — based on real stock.
 export async function mostWanted(n = 8) {
-  return (await getProducts()).filter((p) => p.mostWanted).slice(0, n);
+  const all = await getProducts();
+  const picked = all.filter((p) => p.mostWanted);
+  if (picked.length) return picked.slice(0, n);
+  const left = (p) => Object.values(p.stock || {}).reduce((s, v) => s + v, 0);
+  return all.filter((p) => p.inStock && left(p) > 0).sort((a, b) => left(a) - left(b)).slice(0, n);
 }
 export async function relatedProducts(product, n = 4) {
   const all = await getProducts();

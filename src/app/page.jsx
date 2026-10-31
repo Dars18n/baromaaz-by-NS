@@ -16,8 +16,8 @@ export default async function HomePage() {
   const [all, drop, fresh, wanted, looks, monthly] = await Promise.all([getProducts(), dropProducts(), newArrivals(8), mostWanted(8), getLooks(), getMonthlyDrops()]);
   const bySlug = Object.fromEntries(all.map((p) => [p.slug, p]));
   const tabs = [
-    { id: "new", label: "New Arrivals", products: fresh, href: "/new-in", cta: "Shop all new in" },
-    ...(wanted.length ? [{ id: "wanted", label: "Most Wanted", products: wanted, href: "/shop", cta: "Shop all" }] : []),
+    { id: "new", label: "New Drops", heading: "New Arrivals", products: fresh, href: "/new-in", cta: "Shop all new in" },
+    ...(wanted.length ? [{ id: "wanted", label: "Most Wanted", heading: "Most Wanted", products: wanted, href: "/shop", cta: "Shop all" }] : []),
   ];
   return (
     <>
