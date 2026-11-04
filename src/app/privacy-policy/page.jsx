@@ -15,6 +15,7 @@ export default function Page() {
       <ul>
         <li><strong>Information you give us:</strong> name, email, mobile number, delivery address, and anything you write to us (messages, reviews, return requests).</li>
         <li><strong>Order information:</strong> items purchased, order value and payment status. Card, UPI and bank details are collected and processed directly by our payment partner, Razorpay — we never see or store them.</li>
+        <li><strong>Your location (only if you choose):</strong> if you tap &ldquo;Use my current location&rdquo; at checkout, your phone shares its location once so we can fill in your area, city and PIN code. The address lookup is done through OpenStreetMap. We don&rsquo;t store your location — only the address you confirm with your order.</li>
         <li><strong>On your device:</strong> your bag, wishlist and account preferences are saved in your browser&rsquo;s local storage so they&rsquo;re there when you come back. You can clear them at any time from your browser settings.</li>
         <li><strong>Usage data:</strong> basic, aggregated analytics such as pages visited and device type, to improve the site.</li>
       </ul>
