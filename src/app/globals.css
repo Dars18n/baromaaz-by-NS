@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  :root { --cobar: 0px; --cobar-desk: 0px; --pbar: 0px; }
+  /* room at the bottom for the phone tab bar + sticky checkout / add-to-cart bars */
+  body { padding-bottom: calc(4rem + env(safe-area-inset-bottom) + var(--cobar) + var(--pbar)); }
+  @media (min-width: 768px) { body { padding-bottom: var(--cobar-desk); } }
   html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
   html, body { overflow-x: clip; }
   body { @apply bg-ivory font-sans text-ink antialiased; }

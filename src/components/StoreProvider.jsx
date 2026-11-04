@@ -133,7 +133,7 @@ export function StoreProvider({ children, products = [] }) {
   return (
     <StoreContext.Provider value={value}>
       {children}
-      <div aria-live="polite" className="pointer-events-none fixed inset-x-0 bottom-[calc(5rem+env(safe-area-inset-bottom))] z-[80] flex justify-center px-4 md:bottom-5">
+      <div aria-live="polite" className="pointer-events-none fixed inset-x-0 bottom-[calc(5rem+env(safe-area-inset-bottom)+var(--cobar)+var(--pbar))] z-[80] flex justify-center px-4 md:bottom-[calc(1.25rem+var(--cobar-desk))]">
         {toast && <div className="animate-fadeUp bg-ink px-5 py-3 text-sm text-ivory shadow-lg">{toast}</div>}
       </div>
     </StoreContext.Provider>

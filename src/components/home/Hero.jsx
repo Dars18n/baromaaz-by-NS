@@ -5,7 +5,7 @@ import Fireworks from "./Fireworks";
 
 export default function Hero() {
   return (
-    <section className="relative isolate flex min-h-[calc(100svh-4rem-env(safe-area-inset-bottom))] items-end md:min-h-[100svh] overflow-hidden bg-[#5a2c1e] text-ivory">
+    <section className="relative isolate flex min-h-[calc(100svh-4rem-env(safe-area-inset-bottom)-var(--cobar))] items-end md:min-h-[100svh] overflow-hidden bg-[#5a2c1e] text-ivory">
       {/* Phones (under 768px) get the portrait photo; tablets and computers get the three-women photo. */}
       <picture>
         <source media="(max-width: 767px)" srcSet="/images/hero/hero-phone.webp" width="1000" height="1379" />
