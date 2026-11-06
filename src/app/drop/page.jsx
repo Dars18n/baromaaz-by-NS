@@ -8,7 +8,7 @@ import { pageMeta } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
 export const metadata = pageMeta({
-  title: `This Month's Drop — The ${SITE.drop.name} Edit (${SITE.drop.month})`,
+  title: `${SITE.drop.name} Edit — ${SITE.drop.month} Festive Ethnic Wear Drop`,
   description: `${SITE.drop.blurb} Shop the Baromaaz ${SITE.drop.month} drop.`,
   path: "/drop",
 });

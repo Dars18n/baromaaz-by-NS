@@ -5,8 +5,8 @@ import { pageMeta } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
 export const metadata = pageMeta({
-  title: "Our Story — Twelve Months, Twelve Collections",
-  description: "Baromaaz means 'twelve months'. Meet the Maharashtra studio making one small, handcrafted ethnic-fusion collection every month in premium Indian fabrics.",
+  title: "About Baromaaz — Handcrafted Indian Ethnic Wear Brand",
+  description: "Baromaaz means 'twelve months'. Meet the Maharashtra studio making one small, handcrafted Indian ethnic and Indo-western collection every month.",
   path: "/about",
 });
 
@@ -23,7 +23,7 @@ export default function AboutPage() {
       <section className="container-x grid items-center gap-10 pt-8 md:grid-cols-2 md:gap-16 md:pt-14">
         <div>
           <p className="eyebrow">Our story</p>
-          <h1 className="h-display mt-3 text-5xl md:text-7xl">Twelve months.<br /><em>Twelve stories.</em></h1>
+          <h1 className="h-display mt-3 text-5xl md:text-7xl">Twelve months.<br /><em>Twelve stories.</em><span className="sr-only"> — the story of Baromaaz, a handcrafted Indian ethnic wear brand</span></h1>
           <p className="mt-6 text-[16px] leading-8 text-ink-soft">Baromaaz began at a dining table in {SITE.address.city} with a pile of old Paithani borders and a simple question: why does Indian craft only come out for weddings? We wanted pieces a 22-year-old would wear to college on Monday and to a sangeet on Saturday.</p>
           <p className="mt-4 text-[16px] leading-8 text-ink-soft">So we built a label around the calendar. <strong className="font-medium text-ink">{SITE.tagline}</strong> — every month, a new collection, inspired by the season, a festival or a weave, made in small numbers by hand in {SITE.address.state}.</p>
         </div>

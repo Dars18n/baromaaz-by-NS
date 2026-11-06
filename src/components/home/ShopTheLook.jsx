@@ -46,7 +46,7 @@ function LookSheet({ look, products, onClose }) {
         <ul className="mt-5 divide-y divide-ink/10">
           {products.map((p) => (
             <li key={p.slug} className="flex gap-4 py-5">
-              <Link href={`/product/${p.slug}`} className="w-24 shrink-0 bg-beige"><Img src={p.images[0]} alt={p.name} className="aspect-[4/5] w-full object-cover" /></Link>
+              <Link href={`/product/${p.slug}`} className="w-24 shrink-0 bg-beige"><Img src={p.images[0]} alt={`${p.name} by Baromaaz — ${look.title} look`} className="aspect-[4/5] w-full object-cover" /></Link>
               <div className="min-w-0 flex-1">
                 <Link href={`/product/${p.slug}`} className="font-serif text-xl leading-tight">{p.name}</Link>
                 <div className="mb-3 mt-1"><Price price={p.price} mrp={p.mrp} /></div>
@@ -67,7 +67,7 @@ export default function ShopTheLook({ looks, productsBySlug }) {
   return (
     <section aria-labelledby="look-heading" className="pt-20 md:pt-28">
       <Reveal className="container-x mb-8">
-        <SectionHeading id="look-heading" eyebrow="Styled by us" title="Shop the Look">Swipe through this month&rsquo;s editorial — tap Add + to shop every piece in a look.</SectionHeading>
+        <SectionHeading id="look-heading" eyebrow="Styled by us" title="Shop the Look — Styled Ethnic Outfits">Swipe through this month&rsquo;s editorial — tap Add + to shop every piece in a look.</SectionHeading>
       </Reveal>
       <Scroller label="Editorial looks">
         {looks.map((look) => {

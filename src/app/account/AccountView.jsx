@@ -53,7 +53,7 @@ function Orders() {
           <ul className="mt-4 space-y-3">
             {o.items.map((i) => (
               <li key={`${i.slug}-${i.size}`} className="flex items-center gap-3 text-sm">
-                <div className="w-12 shrink-0 bg-beige"><Img src={i.image} alt={i.name} className="aspect-[4/5] w-full object-cover" /></div>
+                <div className="w-12 shrink-0 bg-beige"><Img src={i.image} alt={`${i.name} by Baromaaz`} className="aspect-[4/5] w-full object-cover" /></div>
                 <span className="flex-1">{i.name} · Size {i.size} · Qty {i.qty}</span>
                 <span>{formatPrice(i.price * i.qty)}</span>
               </li>

@@ -59,7 +59,7 @@ export default function MonthDrops({ year, months, startKey }) {
         {/* copy */}
         <Reveal className="md:order-1 md:self-end">
           <p className="eyebrow">Har Mahina, Naya Libaas</p>
-          <h2 id="months-heading" className="h-display mt-3 text-4xl md:text-6xl">12 Months.<br className="hidden md:block" /> 12 Drops.</h2>
+          <h2 id="months-heading" className="h-display mt-3 text-4xl md:text-6xl">12 Months.<br className="hidden md:block" /> 12 Drops.<span className="sr-only"> — a new collection of handcrafted Indian ethnic wear every month</span></h2>
           <p className="mt-4 max-w-md text-[15px] leading-7 text-ink-soft">
             Baromaaz means twelve months. Every month brings one small, handcrafted collection — browse the {year} drops month by month.
           </p>
@@ -139,7 +139,7 @@ export default function MonthDrops({ year, months, startKey }) {
                   <button key={mo.key} data-key={mo.key} type="button" onClick={() => go(k)} aria-pressed={active} aria-label={`${mo.name}${mo.status === "upcoming" ? " — coming soon" : mo.count ? ` — ${mo.count} ${mo.count === 1 ? "piece" : "pieces"}` : ""}`} className="flex w-[62px] shrink-0 flex-col items-center gap-1.5">
                     <span className={`block overflow-hidden rounded-full transition-all duration-300 ${active ? "h-[60px] w-[60px] ring-[3px] ring-terracotta ring-offset-2 ring-offset-ivory" : "h-[54px] w-[54px] opacity-80 hover:opacity-100"}`}>
                       {mo.status === "live" ? (
-                        <Img src={mo.featured.image} alt="" width={200} height={250} className="h-full w-full object-cover object-top" />
+                        <Img src={mo.featured.image} alt={`${mo.featured.name} — ${mo.name} drop`} width={200} height={250} className="h-full w-full object-cover object-top" />
                       ) : (
                         <span className="flex h-full w-full items-center justify-center bg-ink font-script text-2xl text-terracotta-light">{mo.number}</span>
                       )}

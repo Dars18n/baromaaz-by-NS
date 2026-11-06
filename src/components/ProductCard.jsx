@@ -21,8 +21,7 @@ export default function ProductCard({ product, priority = false, className = "" 
           />
           <Img
             src={product.images[1] || product.images[0]}
-            alt=""
-            aria-hidden="true"
+            alt={`${product.name} — alternate view`}
             className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100 max-md:hidden"
           />
           {product.drop && (

@@ -10,7 +10,7 @@ export default async function CategoryScroller() {
   return (
     <section aria-labelledby="cat-heading" className="pt-20 md:pt-28">
       <Reveal className="container-x mb-8 flex items-end justify-between gap-6">
-        <SectionHeading id="cat-heading" eyebrow="Find your fit" title="Shop by Category" />
+        <SectionHeading id="cat-heading" eyebrow="Find your fit" title="Shop Ethnic Wear by Category" />
         <Link href="/shop" className="hidden shrink-0 py-3 text-xs uppercase tracking-[0.18em] underline underline-offset-4 sm:block">View all</Link>
       </Reveal>
       <Scroller label="Categories">

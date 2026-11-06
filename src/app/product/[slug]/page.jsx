@@ -25,7 +25,7 @@ export async function generateMetadata({ params }) {
   if (!p) return {};
   const firstLine = p.description ? ` ${p.description.split(". ")[0].replace(/\.$/, "")}.` : "";
   return pageMeta({
-    title: p.color ? `${p.name} — ${p.color}` : p.name,
+    title: `Buy ${p.name}${p.color ? ` — ${p.color}` : ""} Online`,
     description: `${p.name} by Baromaaz at ${formatPrice(p.price)}.${p.fabric ? ` ${p.fabric},` : ""} handcrafted in Maharashtra.${firstLine}`,
     path: `/product/${p.slug}`,
     image: p.og,
@@ -118,7 +118,7 @@ export default async function ProductPage({ params }) {
         </div>
         <div className="px-4 sm:px-6 md:px-0">
           {p.drop && <p className="eyebrow">Monthly Drop · {SITE.drop.month}</p>}
-          <h1 className="h-display mt-2 text-4xl md:text-5xl">{p.name}</h1>
+          <h1 className="h-display mt-2 text-4xl md:text-5xl">{p.name}{cat?.name && <span className="sr-only"> — handcrafted {cat.name.toLowerCase()} for women by Baromaaz</span>}</h1>
           {(p.color || p.fabric) && <p className="mt-1 text-sm text-ink-muted">{[p.color, p.fabric].filter(Boolean).join(" · ")}</p>}
           {rating && (
             <a href="#reviews-heading" className="mt-3 flex items-center gap-2 text-sm text-ink-soft">
@@ -140,7 +140,7 @@ export default async function ProductPage({ params }) {
       <div className="mt-16 md:mt-24"><Reviews product={p} reviews={reviews} rating={rating} /></div>
 
       <section aria-labelledby="related-heading" className="container-x pt-16 md:pt-24">
-        <h2 id="related-heading" className="h-display text-4xl md:text-5xl">You may also like</h2>
+        <h2 id="related-heading" className="h-display text-4xl md:text-5xl">You may also like — more handcrafted ethnic wear</h2>
         <div className="mt-8 grid grid-cols-2 gap-x-3 gap-y-10 sm:gap-x-5 lg:grid-cols-4">
           {related.map((r) => <ProductCard key={r.slug} product={r} />)}
         </div>

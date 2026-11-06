@@ -3,6 +3,7 @@ import TrustStrip from "@/components/home/TrustStrip";
 import CategoryScroller from "@/components/home/CategoryScroller";
 import MonthlyDrop from "@/components/home/MonthlyDrop";
 import ProductTabs from "@/components/home/ProductTabs";
+import MostWanted from "@/components/home/MostWanted";
 import ShopTheLook from "@/components/home/ShopTheLook";
 import NewsletterBand from "@/components/home/NewsletterBand";
 import MonthDrops from "@/components/home/MonthDrops";
@@ -17,8 +18,9 @@ export default async function HomePage() {
   const bySlug = Object.fromEntries(all.map((p) => [p.slug, p]));
   const tabs = [
     { id: "new", label: "New Drops", heading: "New Arrivals", products: fresh, href: "/new-in", cta: "Shop all new in" },
-    ...(wanted.length ? [{ id: "wanted", label: "Most Wanted", heading: "Most Wanted", products: wanted, href: "/shop", cta: "Shop all" }] : []),
   ];
+  // Slim version for the browser: only what the Most Wanted cards need.
+  const wantedCards = wanted.map((w) => ({ slug: w.slug, name: w.name, color: w.color, price: w.price, mrp: w.mrp, image: w.images[0], sizes: w.sizes, stock: w.stock }));
   return (
     <>
       <Hero />
@@ -27,6 +29,7 @@ export default async function HomePage() {
       {monthly.months.length > 0 && <MonthDrops year={monthly.year} months={monthly.months} startKey={monthly.startKey} />}
       {drop.length > 0 && <MonthlyDrop products={drop} />}
       {fresh.length > 0 && <ProductTabs tabs={tabs} />}
+      {wantedCards.length > 0 && <MostWanted products={wantedCards} />}
       {looks.length > 0 && <ShopTheLook looks={looks} productsBySlug={bySlug} />}
       <NewsletterBand />
     </>

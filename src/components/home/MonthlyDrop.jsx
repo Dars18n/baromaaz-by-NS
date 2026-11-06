@@ -17,7 +17,7 @@ export default function MonthlyDrop({ products }) {
       <div className="container-x grid items-center gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
         <Reveal className="order-2 lg:order-1">
           <p className="eyebrow">Monthly Drop · {SITE.drop.month}</p>
-          <h2 id="drop-heading" className="h-display mt-3 text-5xl md:text-6xl">The {SITE.drop.name} Edit</h2>
+          <h2 id="drop-heading" className="h-display mt-3 text-5xl md:text-6xl">The {SITE.drop.name} Edit<span className="mt-2 block font-serif text-2xl font-medium text-ink-soft md:text-3xl">Festive ethnic wear for women</span></h2>
           <p className="mt-4 max-w-md text-[15px] leading-7 text-ink-soft">{SITE.drop.blurb}</p>
 
           <div key={current.slug} className="mt-8 animate-fadeIn border-t border-ink/15 pt-6" aria-live="polite">
@@ -60,7 +60,7 @@ export default function MonthlyDrop({ products }) {
                       aria-label={`Show ${p.name}`}
                       className={`block aspect-square w-full overflow-hidden rounded-full border-[3px] bg-ivory transition-all duration-500 hover:scale-110 ${isActive ? "scale-110 border-terracotta-dark shadow-lg" : "border-ivory shadow"}`}
                     >
-                      <Img src={p.images[0]} alt="" className="h-full w-full scale-[1.7] object-cover object-[50%_30%]" />
+                      <Img src={p.images[0]} alt={`${p.name} — Baromaaz ${SITE.drop.name} drop`} className="h-full w-full scale-[1.7] object-cover object-[50%_30%]" />
                     </button>
                   </li>
                 );

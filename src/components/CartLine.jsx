@@ -12,7 +12,7 @@ export default function CartLine({ line, compact = false }) {
   return (
     <div className="flex gap-4">
       <Link href={`/product/${p.slug}`} onClick={() => setCartOpen(false)} className={`shrink-0 overflow-hidden bg-beige ${compact ? "w-20" : "w-24 sm:w-28"}`}>
-        <Img src={p.images[0]} alt={p.name} className="aspect-[4/5] h-full w-full object-cover" />
+        <Img src={p.images[0]} alt={`${p.name} by Baromaaz`} className="aspect-[4/5] h-full w-full object-cover" />
       </Link>
       <div className="flex min-w-0 flex-1 flex-col">
         <div className="flex items-start justify-between gap-3">

@@ -29,7 +29,7 @@ export default function Gallery({ images, name, color }) {
       <div className="no-scrollbar flex gap-2 overflow-x-auto px-4 sm:px-6 md:flex-col md:overflow-visible md:px-0" role="group" aria-label="Product images">
         {images.map((src, i) => (
           <button key={src} type="button" onClick={() => goTo(i)} aria-label={`Show image ${i + 1} of ${images.length}`} aria-current={active === i} className={`w-16 shrink-0 overflow-hidden border transition md:w-20 ${active === i ? "border-ink" : "border-transparent opacity-70 hover:opacity-100"}`}>
-            <Img src={src} alt="" className="aspect-[4/5] w-full object-cover" />
+            <Img src={src} alt={`${name} — thumbnail ${i + 1}`} className="aspect-[4/5] w-full object-cover" />
           </button>
         ))}
       </div>

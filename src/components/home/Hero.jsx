@@ -24,13 +24,13 @@ export default function Hero() {
       <div aria-hidden="true" className="absolute inset-0 -z-10 hidden bg-gradient-to-r from-black/50 via-black/10 via-50% to-transparent md:block" />
       <div className="container-x pb-14 pt-32 md:pb-16">
         <div className="max-w-xl">
-          <p className="animate-fadeUp text-[11px] uppercase tracking-[0.3em] text-ivory/90">{SITE.drop.month} · The {SITE.drop.name} Drop</p>
+          <p className="animate-fadeUp text-[11px] uppercase tracking-[0.3em] text-ivory/90">Handcrafted Indian Ethnic Wear · {SITE.drop.month} · The {SITE.drop.name} Drop</p>
           <p className="mt-6 animate-fadeUp text-ivory [animation-delay:120ms]" aria-hidden="true"><Logo className="text-[26px] md:text-[34px]" /></p>
           <h1 className="h-display mt-2 animate-fadeUp text-[3.1rem] [animation-delay:200ms] sm:text-6xl md:text-7xl">
-            Har Mahina,<br /><em className="font-medium">Naya Libaas</em>
+            <span className="sr-only">Baromaaz — handcrafted Indian ethnic wear online: kurtis, corsets, co-ord sets &amp; festive wear. </span>Har Mahina,<br /><em className="font-medium">Naya Libaas</em>
           </h1>
           <p className="mt-5 max-w-md animate-fadeUp text-[15px] leading-7 text-ivory/90 [animation-delay:320ms] md:text-base">
-            One small, handcrafted collection every month — made in Maharashtra, in premium fabrics, never mass-produced.
+            One small, handcrafted ethnic and Indo-western collection every month — kurtis, corsets, co-ord sets and festive wear made in Maharashtra, in premium fabrics.
           </p>
           <div className="mt-8 flex animate-fadeUp flex-wrap gap-3 [animation-delay:420ms]">
             <Link href="/shop" className="btn-light">Explore the collection</Link>

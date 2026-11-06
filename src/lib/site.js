@@ -6,8 +6,9 @@ export const SITE = {
   name: "Baromaaz",
   url: (process.env.NEXT_PUBLIC_SITE_URL || "https://www.baromaaz.com").replace(/\/$/, ""),
   tagline: "Har Mahina, Naya Libaas",
+  title: "Baromaaz | Indian Ethnic Wear Online – Kurtis, Corsets, Co-ords",
   description:
-    "Baromaaz is a handcrafted Indian ethnic-fusion label from Maharashtra. A limited new collection drops every month — kurtis, corsets, co-ord sets, dresses and festive wear in premium fabrics.",
+    "Shop handcrafted Indian ethnic wear online: kurtis, corsets, co-ord sets, dresses & festive wear. Indo-western fashion with a new limited drop every month.",
   locale: "en_IN",
   ogImage: "/images/og/og-default.jpg",
 
@@ -67,8 +68,6 @@ export const SITE = {
 
   freeShippingAbove: 1499,
   shippingFee: 99,
-  // Cash on Delivery: set cod.enabled to false to switch it off. fee = handling charge added to COD orders.
-  cod: { enabled: true, fee: 59 },
 };
 
 export const formatAddress = (a = SITE.address) =>

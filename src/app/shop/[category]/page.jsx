@@ -27,7 +27,7 @@ export async function generateMetadata({ params }) {
   if (!c) return {};
   const prices = (await getProducts()).filter((p) => p.category === c.slug).map((p) => p.price);
   return pageMeta({
-    title: `${c.name} for Women — Handcrafted`,
+    title: `Buy ${c.name} for Women Online — Handcrafted Ethnic Wear`,
     description: `${intros[c.slug] || `Handcrafted ${c.name.toLowerCase()} by Baromaaz.`}${prices.length ? ` Shop Baromaaz ${c.name.toLowerCase()} from ₹${Math.min(...prices).toLocaleString("en-IN")}.` : ""}`,
     path: `/shop/${c.slug}`,
   });
@@ -40,7 +40,7 @@ export default async function CategoryPage({ params }) {
   const products = (await getProducts()).filter((p) => p.category === c.slug);
   return (
     <>
-      <PageHeader crumbs={[{ label: "Shop", href: "/shop" }, { label: c.name }]} eyebrow="Shop by category" title={c.name} intro={intros[c.slug]} />
+      <PageHeader crumbs={[{ label: "Shop", href: "/shop" }, { label: c.name }]} eyebrow="Shop by category" title={`${c.name} for Women`} intro={intros[c.slug]} />
       <Suspense fallback={<div className="container-x min-h-[60vh]" />}>
         <ShopView products={products} lockedCategory={c.slug} />
       </Suspense>

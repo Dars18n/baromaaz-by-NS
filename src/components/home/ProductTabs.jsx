@@ -31,7 +31,7 @@ export default function ProductTabs({ tabs }) {
           <SparkleIcon width={16} height={16} /> Fresh monthly drops
         </p>
         <div className="mt-3 flex flex-col gap-5 md:flex-row md:items-center md:gap-8">
-          <h2 id="tabs-heading" className="h-display text-4xl md:text-5xl">{current.heading || current.label}</h2>
+          <h2 id="tabs-heading" className="h-display text-4xl md:text-5xl">{current.heading || current.label}<span className="sr-only"> — handcrafted kurtis, corsets, dresses &amp; co-ord sets</span></h2>
 
           {tabs.length > 1 && (
             <div role="tablist" aria-label="Featured products" className="flex w-full rounded-full border border-ink/5 bg-beige p-1.5 md:w-auto">

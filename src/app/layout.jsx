@@ -1,10 +1,12 @@
-import "@fontsource/cormorant-garamond/500.css";
-import "@fontsource/cormorant-garamond/600.css";
-import "@fontsource/cormorant-garamond/500-italic.css";
-import "@fontsource/jost/400.css";
-import "@fontsource/jost/500.css";
-import "@fontsource/federo/400.css";
-import "@fontsource/pinyon-script/400.css";
+import "@fontsource/cormorant-garamond/latin-500.css";
+import "@fontsource/cormorant-garamond/latin-ext-500.css";
+import "@fontsource/cormorant-garamond/latin-600.css";
+import "@fontsource/cormorant-garamond/latin-500-italic.css";
+import "@fontsource/jost/latin-400.css";
+import "@fontsource/jost/latin-ext-400.css";
+import "@fontsource/jost/latin-500.css";
+import "@fontsource/federo/latin-400.css";
+import "@fontsource/pinyon-script/latin-400.css";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -19,21 +21,20 @@ export const revalidate = 60;
 
 export const metadata = {
   metadataBase: new URL(SITE.url),
-  title: { default: `Baromaaz — ${SITE.tagline} | Handcrafted Indo-Western Wear`, template: "%s | Baromaaz" },
+  title: { default: SITE.title, template: "%s | Baromaaz" },
   description: SITE.description,
   applicationName: "Baromaaz",
-  keywords: ["Baromaaz", "Indian ethnic fusion", "handcrafted kurtis", "corsets", "co-ord sets", "festive wear", "Maharashtra", "monthly drop"],
-  alternates: { canonical: "/" },
+  keywords: ["Indian ethnic wear online", "handcrafted kurtis", "Indo-western wear", "corsets", "co-ord sets", "festive wear", "ethnic dresses for women", "Baromaaz", "Maharashtra", "monthly drop"],
   openGraph: {
     type: "website",
     siteName: "Baromaaz",
     locale: SITE.locale,
     url: "/",
-    title: `Baromaaz — ${SITE.tagline}`,
+    title: SITE.title,
     description: SITE.description,
-    images: [{ url: SITE.ogImage, width: 1200, height: 630, alt: "Baromaaz — Har Mahina, Naya Libaas" }],
+    images: [{ url: SITE.ogImage, width: 1200, height: 630, alt: "Baromaaz handcrafted Indian ethnic wear — kurtis, corsets and co-ord sets" }],
   },
-  twitter: { card: "summary_large_image", title: `Baromaaz — ${SITE.tagline}`, description: SITE.description, images: [SITE.ogImage] },
+  twitter: { card: "summary_large_image", title: SITE.title, description: SITE.description, images: [SITE.ogImage] },
   robots: { index: true, follow: true },
   formatDetection: { telephone: false },
 };
