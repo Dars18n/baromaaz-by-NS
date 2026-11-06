@@ -26,7 +26,11 @@ export default function Page() {
       <h2>Damaged or tampered parcels</h2>
       <p>Please don&rsquo;t accept a parcel that looks tampered with. If you notice damage after opening, record an unboxing video and share it with us within 48 hours of delivery so we can resolve it quickly.</p>
       <h2>Cash on delivery</h2>
-      <p>We currently accept prepaid orders only (UPI, cards, netbanking and wallets via Razorpay).</p>
+      {SITE.cod?.enabled ? (
+        <p>Cash on Delivery is available on serviceable PIN codes. A handling charge of {formatPrice(SITE.cod.fee)} is added to COD orders and shown in your bill before you place the order. Prepaid orders (UPI, cards, netbanking and wallets via Razorpay) have no handling charge.</p>
+      ) : (
+        <p>We currently accept prepaid orders only (UPI, cards, netbanking and wallets via Razorpay).</p>
+      )}
     </PolicyPage>
   );
 }

@@ -67,6 +67,8 @@ export const SITE = {
 
   freeShippingAbove: 1499,
   shippingFee: 99,
+  // Cash on Delivery: set cod.enabled to false to switch it off. fee = handling charge added to COD orders.
+  cod: { enabled: true, fee: 59 },
 };
 
 export const formatAddress = (a = SITE.address) =>
