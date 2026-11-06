@@ -134,7 +134,7 @@ export default function CheckoutView() {
     setBusy(true);
     try {
       const items = cartLines.map((l) => ({ slug: l.slug, size: l.size, qty: l.qty }));
-      const res = await fetch("/api/razorpay/order", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ items }) });
+      const res = await fetch("/api/razorpay/order", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ items, customer: form }) });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Could not start payment");
 
@@ -167,7 +167,7 @@ export default function CheckoutView() {
         theme: { color: "#86432b" },
         handler: async (resp) => {
           const v = await fetch("/api/razorpay/verify", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(resp) }).then((r) => r.json()).catch(() => ({}));
-          if (v.verified) finish({ ...baseOrder, paymentId: resp.razorpay_payment_id, status: "Confirmed" });
+          if (v.verified) finish({ ...baseOrder, id: v.orderNumber || baseOrder.id, paymentId: resp.razorpay_payment_id, status: "Confirmed" });
           else setError("We couldn't verify your payment. If money was debited, contact us with your payment ID: " + resp.razorpay_payment_id);
           setBusy(false);
         },

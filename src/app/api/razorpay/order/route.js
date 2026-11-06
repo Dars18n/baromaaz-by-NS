@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
 import { priceCart } from "@/lib/pricing";
+import { orderNumberFor, savePendingOrder, validateCustomer } from "@/lib/orders";
 
-// Creates a Razorpay order. Amount is recomputed on the server from the catalogue.
+// Creates a Razorpay order and saves it in Supabase as "pending".
+// The amount is recomputed on the server from the catalogue — never trusted from the browser.
 export async function POST(req) {
   let body;
   try {
@@ -9,9 +11,10 @@ export async function POST(req) {
   } catch {
     return NextResponse.json({ error: "Invalid request" }, { status: 400 });
   }
-  let priced;
+  let priced, customer;
   try {
     priced = await priceCart(body.items);
+    customer = validateCustomer(body.customer);
   } catch (e) {
     return NextResponse.json({ error: e.message }, { status: 400 });
   }
@@ -28,21 +31,42 @@ export async function POST(req) {
         { status: 503 }
       );
     }
-    return NextResponse.json({ demo: true, amount: priced.total * 100, currency: "INR", ...priced });
+    return NextResponse.json({ demo: true, receipt: orderNumberFor(), amount: priced.total * 100, currency: "INR", ...priced });
   }
 
-  const receipt = `BRZ-${Date.now()}`;
-  const res = await fetch("https://api.razorpay.com/v1/orders", {
-    method: "POST",
+  const orderNumber = orderNumberFor();
+  let res;
+  try {
+    res = await fetch("https://api.razorpay.com/v1/orders", {
+      signal: AbortSignal.timeout(15000),
+      method: "POST",
     headers: { "Content-Type": "application/json", Authorization: "Basic " + Buffer.from(`${keyId}:${secret}`).toString("base64") },
     body: JSON.stringify({
       amount: priced.total * 100, // paise
       currency: "INR",
-      receipt,
-      notes: { items: priced.lines.map((l) => `${l.slug}:${l.size}x${l.qty}`).join(", ").slice(0, 250) },
-    }),
-  });
-  if (!res.ok) return NextResponse.json({ error: "Could not start payment. Please try again." }, { status: 502 });
-  const order = await res.json();
-  return NextResponse.json({ demo: false, keyId, orderId: order.id, amount: order.amount, currency: order.currency, receipt, ...priced });
+      receipt: orderNumber,
+      notes: {
+        source: "baromaaz-website",
+        order_number: orderNumber,
+        items: priced.lines.map((l) => `${l.slug}:${l.size}x${l.qty}`).join(", ").slice(0, 250),
+      },
+      }),
+    });
+  } catch {
+    return NextResponse.json({ error: "Payment service is slow right now — please try again in a moment." }, { status: 504 });
+  }
+  if (!res.ok) {
+    console.error("[razorpay order]", res.status, await res.text().catch(() => ""));
+    return NextResponse.json({ error: "Could not start payment. Please try again." }, { status: 502 });
+  }
+  const rzpOrder = await res.json();
+
+  try {
+    await savePendingOrder({ orderNumber, razorpayOrderId: rzpOrder.id, customer, priced });
+  } catch (e) {
+    console.error("[save order]", e.message);
+    return NextResponse.json({ error: "Could not start payment. Please try again." }, { status: 500 });
+  }
+
+  return NextResponse.json({ demo: false, keyId, orderId: rzpOrder.id, amount: rzpOrder.amount, currency: rzpOrder.currency, receipt: orderNumber, ...priced });
 }
