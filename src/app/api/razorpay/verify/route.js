@@ -1,7 +1,10 @@
 import { NextResponse } from "next/server";
 import crypto from "node:crypto";
+import { getOrderNumber, hmacEqual, markPaid } from "@/lib/orders";
 
-// Verifies the Razorpay payment signature (HMAC-SHA256 of "order_id|payment_id").
+// Called by checkout right after Razorpay says "paid".
+// Verifies the signature (HMAC-SHA256 of "order_id|payment_id"), then marks the order paid,
+// reduces stock and emails the shop. The webhook does the same as a backup.
 export async function POST(req) {
   const secret = process.env.RAZORPAY_KEY_SECRET;
   if (!secret) return NextResponse.json({ verified: false, error: "Payments not configured" }, { status: 400 });
@@ -10,9 +13,14 @@ export async function POST(req) {
     return NextResponse.json({ verified: false }, { status: 400 });
   }
   const expected = crypto.createHmac("sha256", secret).update(`${razorpay_order_id}|${razorpay_payment_id}`).digest("hex");
-  const a = Buffer.from(expected);
-  const b = Buffer.from(String(razorpay_signature));
-  const verified = a.length === b.length && crypto.timingSafeEqual(a, b);
-  // TODO: save the paid order to your database / Google Sheet / email here before responding.
-  return NextResponse.json({ verified }, { status: verified ? 200 : 400 });
+  if (!hmacEqual(expected, razorpay_signature)) return NextResponse.json({ verified: false }, { status: 400 });
+
+  try {
+    await markPaid(razorpay_order_id, razorpay_payment_id, "checkout");
+  } catch (e) {
+    // Payment is genuine even if saving failed — the webhook will retry. Log it loudly.
+    console.error("[verify → markPaid]", e.message);
+  }
+  const orderNumber = await getOrderNumber(razorpay_order_id).catch(() => null);
+  return NextResponse.json({ verified: true, orderNumber });
 }

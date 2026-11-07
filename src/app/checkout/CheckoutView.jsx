@@ -93,11 +93,16 @@ function LocateButton({ onFound }) {
 }
 
 export default function CheckoutView() {
-  const { cartLines, subtotal, shipping, total, profile, saveProfile, addOrder, clearCart, ready } = useStore();
+  const { cartLines, subtotal, shipping, total: itemsTotal, profile, saveProfile, addOrder, clearCart, ready } = useStore();
   const [form, setForm] = useState({ name: "", email: "", phone: "", flat: "", building: "", area: "", landmark: "", city: "", state: "Maharashtra", pincode: "" });
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(null);
   const [placed, setPlaced] = useState(null);
+  const codOn = Boolean(SITE.cod?.enabled);
+  const [method, setMethod] = useState("online"); // "online" | "cod"
+  const isCod = codOn && method === "cod";
+  const codFee = isCod ? SITE.cod.fee : 0;
+  const total = itemsTotal + codFee;
 
   useEffect(() => {
     if (!ready) return;
@@ -134,7 +139,7 @@ export default function CheckoutView() {
     setBusy(true);
     try {
       const items = cartLines.map((l) => ({ slug: l.slug, size: l.size, qty: l.qty }));
-      const res = await fetch("/api/razorpay/order", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ items }) });
+      const res = await fetch(isCod ? "/api/orders/cod" : "/api/razorpay/order", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ items, customer: form }) });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Could not start payment");
 
@@ -144,8 +149,15 @@ export default function CheckoutView() {
         items: cartLines.map((l) => ({ slug: l.slug, name: l.product.name, size: l.size, qty: l.qty, price: l.product.price, image: l.product.images[0] })),
         total: data.total,
         shipping: data.shipping,
+        codFee: data.codFee || 0,
+        method: isCod ? "cod" : "online",
         address: { ...form, address: fullAddress(form) },
       };
+
+      if (isCod) {
+        finish({ ...baseOrder, status: data.demo ? "Test COD order" : "Confirmed — pay on delivery", demo: data.demo });
+        return;
+      }
 
       if (data.demo) {
         finish({ ...baseOrder, status: "Test order — payment not taken", demo: true });
@@ -167,7 +179,7 @@ export default function CheckoutView() {
         theme: { color: "#86432b" },
         handler: async (resp) => {
           const v = await fetch("/api/razorpay/verify", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(resp) }).then((r) => r.json()).catch(() => ({}));
-          if (v.verified) finish({ ...baseOrder, paymentId: resp.razorpay_payment_id, status: "Confirmed" });
+          if (v.verified) finish({ ...baseOrder, id: v.orderNumber || baseOrder.id, paymentId: resp.razorpay_payment_id, status: "Confirmed" });
           else setError("We couldn't verify your payment. If money was debited, contact us with your payment ID: " + resp.razorpay_payment_id);
           setBusy(false);
         },
@@ -187,8 +199,8 @@ export default function CheckoutView() {
       <div className="container-x max-w-2xl pt-12 text-center md:pt-20">
         <p className="eyebrow">Thank you, {placed.address.name.split(" ")[0]}</p>
         <h1 className="h-display mt-3 text-5xl md:text-6xl">Your order is placed</h1>
-        <p className="mt-4 text-[15px] leading-7 text-ink-soft">Order <strong className="font-medium">{placed.id}</strong> · {formatPrice(placed.total)}. We&rsquo;ll WhatsApp updates to {placed.address.phone}{placed.address.email ? ` and email ${placed.address.email}` : ""} when it ships.</p>
-        {placed.demo && <p className="mx-auto mt-4 max-w-md bg-beige px-4 py-3 text-sm text-ink-soft">Demo mode: Razorpay keys aren&rsquo;t configured yet, so no payment was taken.</p>}
+        <p className="mt-4 text-[15px] leading-7 text-ink-soft">Order <strong className="font-medium">{placed.id}</strong> · {formatPrice(placed.total)}{placed.method === "cod" ? " — please keep this amount ready in cash when it's delivered" : ""}. We&rsquo;ll WhatsApp updates to {placed.address.phone}{placed.address.email ? ` and email ${placed.address.email}` : ""} when it ships.</p>
+        {placed.demo && placed.method !== "cod" && <p className="mx-auto mt-4 max-w-md bg-beige px-4 py-3 text-sm text-ink-soft">Demo mode: Razorpay keys aren&rsquo;t configured yet, so no payment was taken.</p>}
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link href="/account?tab=orders" className="btn-dark">View my orders</Link>
           <Link href="/shop" className="btn-outline">Continue shopping</Link>
@@ -223,6 +235,26 @@ export default function CheckoutView() {
                 </select>
               </div>
             </fieldset>
+
+            {codOn && (
+              <fieldset>
+                <legend className="mb-5 font-serif text-2xl">Payment method</legend>
+                <div className="grid gap-3">
+                  {[
+                    { id: "online", title: "Pay online", sub: "UPI, cards, netbanking & wallets — secured by Razorpay" },
+                    { id: "cod", title: "Cash on Delivery", sub: `Pay in cash when your order arrives · ${formatPrice(SITE.cod.fee)} handling charge` },
+                  ].map((o) => (
+                    <label key={o.id} className={`flex cursor-pointer items-start gap-3 border px-4 py-4 transition-colors ${method === o.id ? "border-terracotta-dark bg-terracotta-dark/5" : "border-ink/20 hover:border-ink/40"}`}>
+                      <input type="radio" name="payment-method" value={o.id} checked={method === o.id} onChange={() => setMethod(o.id)} className="mt-1 h-4 w-4 accent-[#86432b]" />
+                      <span className="min-w-0">
+                        <span className="block text-[15px] font-medium">{o.title}</span>
+                        <span className="mt-0.5 block text-[13px] leading-5 text-ink-muted">{o.sub}</span>
+                      </span>
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+            )}
           </div>
 
           <aside aria-label="Order summary" className="h-fit bg-beige p-6">
@@ -239,11 +271,13 @@ export default function CheckoutView() {
             <dl className="mt-6 space-y-2 border-t border-ink/15 pt-4 text-[15px]">
               <div className="flex justify-between"><dt>Subtotal</dt><dd>{formatPrice(subtotal)}</dd></div>
               <div className="flex justify-between"><dt>Shipping</dt><dd>{shipping ? formatPrice(shipping) : "Free"}</dd></div>
+              {isCod && <div className="flex justify-between"><dt>COD handling charge</dt><dd>{formatPrice(codFee)}</dd></div>}
               <div className="flex justify-between pt-2 text-lg font-medium"><dt>Total</dt><dd>{formatPrice(total)}</dd></div>
             </dl>
             {error && <p role="alert" className="mt-4 bg-ivory px-3 py-2 text-sm text-terracotta-dark">{error}</p>}
-            <button type="submit" disabled={busy} className="btn-dark mt-6 w-full">{busy ? "Please wait…" : `Pay ${formatPrice(total)}`}</button>
-            <p className="mt-3 text-center text-xs leading-5 text-ink-muted">Payments are processed securely by Razorpay. By placing this order you agree to our <Link href="/terms-of-service" className="underline">Terms</Link> and <Link href="/returns-exchange-policy" className="underline">Returns Policy</Link>.</p>
+            <button type="submit" disabled={busy} className="btn-dark mt-6 w-full">{busy ? "Please wait…" : isCod ? `Place order · ${formatPrice(total)}` : `Pay ${formatPrice(total)}`}</button>
+            {isCod && <p className="mt-3 text-center text-xs leading-5 text-ink-muted">Pay {formatPrice(total)} in cash to the delivery partner. Save {formatPrice(SITE.cod.fee)} by paying online.</p>}
+            <p className="mt-3 text-center text-xs leading-5 text-ink-muted">{isCod ? "" : "Payments are processed securely by Razorpay. "}By placing this order you agree to our <Link href="/terms-of-service" className="underline">Terms</Link> and <Link href="/returns-exchange-policy" className="underline">Returns Policy</Link>.</p>
           </aside>
         </form>
       )}

@@ -3,7 +3,7 @@ import { SITE } from "./site";
 
 // Server-side source of truth for the amount charged — never trust totals sent from the browser.
 // Re-reads prices and stock from the catalogue.
-export async function priceCart(items) {
+export async function priceCart(items, { method = "online" } = {}) {
   if (!Array.isArray(items) || items.length === 0 || items.length > 50) throw new Error("Cart is empty or invalid");
   const products = await getProducts();
   const lines = items.map(({ slug, size, qty }) => {
@@ -16,5 +16,6 @@ export async function priceCart(items) {
   });
   const subtotal = lines.reduce((s, l) => s + l.price * l.qty, 0);
   const shipping = subtotal >= SITE.freeShippingAbove ? 0 : SITE.shippingFee;
-  return { lines, subtotal, shipping, total: subtotal + shipping };
+  const codFee = method === "cod" ? SITE.cod.fee : 0;
+  return { lines, subtotal, shipping, codFee, method, total: subtotal + shipping + codFee };
 }
