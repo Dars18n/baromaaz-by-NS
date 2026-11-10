@@ -62,6 +62,9 @@ export default function Footer({ categories = [] }) {
       <div className="border-t border-ivory/15">
         <div className="container-x flex flex-col gap-2 py-6 text-xs text-ivory/65 md:flex-row md:items-center md:justify-between">
           <p>© {new Date().getFullYear()} Baromaaz. Handcrafted in {SITE.address.state}, India.</p>
+          <a href="https://nishissolution.com/" className="underline underline-offset-2 transition-colors hover:text-ivory">
+            Powered by Nishi&apos;s Solution
+          </a>
           <p>Secure payments by Razorpay · UPI · Cards · Netbanking</p>
         </div>
       </div>
