@@ -158,7 +158,7 @@ export default function MostWanted({ products }) {
       </div>
 
       <div className="mt-10 text-center">
-        <Link href="/shop" className="btn-outline">Shop all</Link>
+        <Link href="/drop" className="btn-outline">View this month’s drop</Link>
       </div>
       {adding && <QuickAdd product={adding} onClose={() => setAdding(null)} />}
     </section>

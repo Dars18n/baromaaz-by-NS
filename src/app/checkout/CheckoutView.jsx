@@ -203,7 +203,7 @@ export default function CheckoutView() {
         {placed.demo && placed.method !== "cod" && <p className="mx-auto mt-4 max-w-md bg-beige px-4 py-3 text-sm text-ink-soft">Demo mode: Razorpay keys aren&rsquo;t configured yet, so no payment was taken.</p>}
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link href="/account?tab=orders" className="btn-dark">View my orders</Link>
-          <Link href="/shop" className="btn-outline">Continue shopping</Link>
+          <Link href="/drop" className="btn-outline">Continue shopping</Link>
         </div>
       </div>
     );
@@ -215,7 +215,7 @@ export default function CheckoutView() {
       {!ready ? <div className="min-h-[50vh]" /> : cartLines.length === 0 ? (
         <div className="py-20 text-center">
           <p className="font-serif text-3xl">Your bag is empty</p>
-          <Link href="/shop" className="btn-dark mt-6">Explore the collection</Link>
+          <Link href="/drop" className="btn-dark mt-6">Explore the collection</Link>
         </div>
       ) : (
         <form onSubmit={onSubmit} className="mt-10 grid gap-10 lg:grid-cols-[1fr_400px]" noValidate={false}>

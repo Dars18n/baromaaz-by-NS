@@ -5,10 +5,10 @@ import { usePathname } from "next/navigation";
 import { useStore } from "./StoreProvider";
 import { CartIcon, HeartIcon, HomeIcon, ShopBagIcon } from "./Icons";
 
-// Phone-only bottom tab bar: Home · Shop · Wishlist · Cart
+// Phone-only bottom tab bar: Home · New In · Wishlist · Cart
 const TABS = [
   { href: "/", label: "Home", Icon: HomeIcon, match: (p) => p === "/" },
-  { href: "/shop", label: "Shop", Icon: ShopBagIcon, match: (p) => /^\/(shop|product|new-in|drop)(\/|$)/.test(p) },
+  { href: "/new-in", label: "New In", Icon: ShopBagIcon, match: (p) => /^\/(new-in|drop|product)(\/|$)/.test(p) },
   { href: "/wishlist", label: "Wishlist", Icon: HeartIcon, match: (p) => p.startsWith("/wishlist"), count: "wishlist" },
   { href: "/cart", label: "Cart", Icon: CartIcon, match: (p) => p.startsWith("/cart") || p.startsWith("/checkout"), count: "cart" },
 ];

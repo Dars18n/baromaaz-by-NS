@@ -19,11 +19,11 @@ export const SITE = {
   phone: "+91 93737 16673",
   hours: "Monday – Saturday, 10:00 am – 7:00 pm IST",
   address: {
-    line1: "Baromaaz Studio, 2nd Floor, Shanti Kunj",
-    line2: "Prabhat Road, Erandwane",
-    city: "Pune",
-    state: "Maharashtra",
-    pincode: "411004",
+    line1: "Jeevan Vihar Colony, 17, Rampura Rd, Ram Nagar",
+    line2: "Kalyanpura, Sanganer",
+    city: "Jaipur",
+    state: "Rajasthan",
+    pincode: "302029",
     country: "India",
   },
 

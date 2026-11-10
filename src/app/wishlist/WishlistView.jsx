@@ -14,7 +14,7 @@ export default function WishlistView() {
         <div className="py-20 text-center">
           <p className="font-serif text-3xl">Nothing saved yet</p>
           <p className="mt-2 text-sm text-ink-muted">Tap the heart on any piece to keep it here.</p>
-          <Link href="/shop" className="btn-dark mt-6">Explore the collection</Link>
+          <Link href="/drop" className="btn-dark mt-6">Explore the collection</Link>
         </div>
       ) : (
         <>

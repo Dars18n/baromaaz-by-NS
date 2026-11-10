@@ -48,7 +48,7 @@ export default function Footer({ categories = [] }) {
             ))}
           </ul>
         </div>
-        <Col title="Shop" links={[{ href: "/drop", label: "This Month's Drop" }, { href: "/new-in", label: "New In" }, ...categories.map((c) => ({ href: `/shop/${c.slug}`, label: c.name }))]} />
+        <Col title="Shop" links={[{ href: "/drop", label: "This Month's Drop" }, { href: "/new-in", label: "New In" }]} />
         <Col title="Client care" links={clientCare} />
         <div>
           <Col title="Policies" links={policies} />

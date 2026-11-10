@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { useStore } from "./StoreProvider";
-import { BagIcon, CloseIcon, HeartIcon, MenuIcon, SearchIcon, UserIcon } from "./Icons";
+import { BagIcon, CloseIcon, HeartIcon, MenuIcon, UserIcon } from "./Icons";
 import { SITE } from "@/lib/site";
 import { formatPrice } from "@/lib/format";
 import Logo from "./Logo";
@@ -18,16 +18,12 @@ function Badge({ n }) {
   );
 }
 
-export default function Header({ categories = [] }) {
+export default function Header() {
   const pathname = usePathname();
-  const router = useRouter();
   const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
-  const [q, setQ] = useState("");
   const { cartCount, wishlist, setCartOpen, ready } = useStore();
-  const mobileSearchRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -38,25 +34,14 @@ export default function Header({ categories = [] }) {
 
   useEffect(() => {
     setMenuOpen(false);
-    setSearchOpen(false);
   }, [pathname]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
   }, [menuOpen]);
 
-  useEffect(() => {
-    if (searchOpen) mobileSearchRef.current?.focus();
-  }, [searchOpen]);
-
-  const solid = !isHome || scrolled || menuOpen || searchOpen;
+  const solid = !isHome || scrolled || menuOpen;
   const tone = solid ? "text-ink" : "text-ivory";
-
-  const submitSearch = (e) => {
-    e.preventDefault();
-    const term = q.trim();
-    router.push(term ? `/shop?q=${encodeURIComponent(term)}` : "/shop");
-  };
 
   const iconBtn = "relative flex h-11 w-11 items-center justify-center transition-opacity hover:opacity-70";
 
@@ -81,7 +66,6 @@ export default function Header({ categories = [] }) {
               {menuOpen ? <CloseIcon /> : <MenuIcon />}
             </button>
             <nav aria-label="Main" className="hidden items-center gap-7 text-[13px] uppercase tracking-[0.16em] lg:flex">
-              <Link href="/shop" className="link-underline py-1">Shop</Link>
               <Link href="/new-in" className="link-underline py-1">New In</Link>
               <Link
                 href="/drop"
@@ -98,23 +82,6 @@ export default function Header({ categories = [] }) {
 
           {/* right: search + icons */}
           <div className="flex flex-1 items-center justify-end gap-0.5 md:gap-1">
-            <form role="search" onSubmit={submitSearch} className="mr-2 hidden xl:block">
-              <label htmlFor="desk-search" className="sr-only">Search products</label>
-              <div className={`flex items-center border-b ${solid ? "border-ink/40" : "border-ivory/70"}`}>
-                <input
-                  id="desk-search"
-                  type="search"
-                  value={q}
-                  onChange={(e) => setQ(e.target.value)}
-                  placeholder="Search kurtis, corsets…"
-                  className="w-44 bg-transparent py-1.5 text-base xl:text-sm placeholder:text-current placeholder:opacity-70 focus:outline-none"
-                />
-                <button type="submit" aria-label="Search" className="p-1"><SearchIcon width={18} height={18} /></button>
-              </div>
-            </form>
-            <button type="button" className={`${iconBtn} xl:hidden`} aria-label="Search" aria-expanded={searchOpen} onClick={() => setSearchOpen((v) => !v)}>
-              <SearchIcon />
-            </button>
             <Link href="/wishlist" className={iconBtn} aria-label={`Wishlist${ready && wishlist.length ? `, ${wishlist.length} items` : ""}`}>
               <HeartIcon />
               {ready && <Badge n={wishlist.length} />}
@@ -129,29 +96,13 @@ export default function Header({ categories = [] }) {
           </div>
         </div>
 
-        {searchOpen && (
-          <form role="search" onSubmit={submitSearch} className="container-x animate-fadeIn pb-4 xl:hidden">
-            <label htmlFor="mob-search" className="sr-only">Search products</label>
-            <div className="flex items-center border border-ink/30 bg-white">
-              <input ref={mobileSearchRef} id="mob-search" type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search kurtis, corsets, co-ords…" className="min-h-[46px] w-full bg-transparent px-4 text-[16px] text-ink focus:outline-none" />
-              <button type="submit" aria-label="Search" className="flex h-[46px] w-12 items-center justify-center text-ink"><SearchIcon /></button>
-            </div>
-          </form>
-        )}
-
         {/* mobile drawer */}
         {menuOpen && (
           <div className="h-[calc(100dvh-100px)] animate-fadeIn overflow-y-auto border-t border-ink/10 bg-ivory lg:hidden">
             <nav aria-label="Mobile" className="container-x py-6">
               <Link href="/drop" className="btn-terra w-full">This Month&rsquo;s Drop</Link>
-              <ul className="mt-6 divide-y divide-ink/10 font-serif text-2xl">
-                <li><Link href="/shop" className="block py-3">Shop all</Link></li>
-                <li><Link href="/new-in" className="block py-3">New In</Link></li>
-                {categories.map((c) => (
-                  <li key={c.slug}><Link href={`/shop/${c.slug}`} className="block py-3">{c.name}</Link></li>
-                ))}
-              </ul>
               <ul className="mt-6 space-y-3 text-sm uppercase tracking-[0.14em] text-ink-soft">
+                <li><Link href="/new-in" className="block py-3">New In</Link></li>
                 <li><Link href="/account">My account</Link></li>
                 <li><Link href="/wishlist">Wishlist</Link></li>
                 <li><Link href="/about">Our story</Link></li>

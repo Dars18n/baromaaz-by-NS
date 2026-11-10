@@ -109,12 +109,12 @@ export default function MonthDrops({ year, months, startKey }) {
                       </Link>
                     </div>
                     {m.count === 0 && (
-                      <Link href="/shop" className="mt-3 inline-block py-1 text-xs uppercase tracking-[0.14em] text-ivory/85 underline underline-offset-4">
+                      <Link href="/drop" className="mt-3 inline-block py-1 text-xs uppercase tracking-[0.14em] text-ivory/85 underline underline-offset-4">
                         Explore the collection
                       </Link>
                     )}
                     {m.count > 1 && (
-                      <Link href={`/shop?month=${m.key}`} className="mt-3 inline-block py-1 text-xs uppercase tracking-[0.14em] text-ivory/85 underline underline-offset-4">
+                      <Link href="/drop" className="mt-3 inline-block py-1 text-xs uppercase tracking-[0.14em] text-ivory/85 underline underline-offset-4">
                         +{m.count - 1} more from the {m.short.charAt(0) + m.short.slice(1).toLowerCase()} drop
                       </Link>
                     )}

@@ -33,8 +33,8 @@ export default function Hero() {
             One small, handcrafted ethnic and Indo-western collection every month — kurtis, corsets, co-ord sets and festive wear made in Maharashtra, in premium fabrics.
           </p>
           <div className="mt-8 flex animate-fadeUp flex-wrap gap-3 [animation-delay:420ms]">
-            <Link href="/shop" className="btn-light">Explore the collection</Link>
-            <Link href="/drop" className="btn border border-ivory/70 text-ivory hover:bg-ivory hover:text-ink">This month&rsquo;s drop</Link>
+            <Link href="/drop" className="btn-light">Explore the collection</Link>
+            <Link href="/new-in" className="btn border border-ivory/70 text-ivory hover:bg-ivory hover:text-ink">See new arrivals</Link>
           </div>
         </div>
       </div>
