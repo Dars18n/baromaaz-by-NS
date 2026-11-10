@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { track } from "@/lib/analytics";
 
 export default function NewsletterForm({ dark = false, id = "newsletter" }) {
   const [email, setEmail] = useState("");
@@ -13,6 +14,7 @@ export default function NewsletterForm({ dark = false, id = "newsletter" }) {
       const res = await fetch("/api/newsletter", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email }) });
       if (!res.ok) throw new Error();
       setStatus("done");
+      track("newsletter_signup", { source: id });
       setEmail("");
     } catch {
       setStatus("error");

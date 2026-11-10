@@ -2,6 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { SITE } from "@/lib/site";
+import { track } from "@/lib/analytics";
 
 const StoreContext = createContext(null);
 const KEY = "baromaaz-store-v1";
@@ -63,6 +64,7 @@ export function StoreProvider({ children, products = [] }) {
       return { ...s, cart };
     });
     setTimeout(() => capped && notify(`Only ${cap} available in size ${size}`), 0);
+    track("add_to_cart", { item: slug, size, qty });
     if (open) setCartOpen(true);
   }, [maxQty]);
 
@@ -85,7 +87,10 @@ export function StoreProvider({ children, products = [] }) {
         added = !s.wishlist.includes(slug);
         return { ...s, wishlist: added ? [...s.wishlist, slug] : s.wishlist.filter((x) => x !== slug) };
       });
-      setTimeout(() => notify(added ? "Saved to your wishlist" : "Removed from wishlist"), 0);
+      setTimeout(() => {
+        notify(added ? "Saved to your wishlist" : "Removed from wishlist");
+        if (added) track("add_to_wishlist", { item: slug });
+      }, 0);
     },
     [notify]
   );

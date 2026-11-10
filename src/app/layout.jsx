@@ -13,9 +13,12 @@ import Footer from "@/components/Footer";
 import CartDrawer from "@/components/CartDrawer";
 import BottomNav from "@/components/BottomNav";
 import CheckoutBar from "@/components/CheckoutBar";
+import Analytics from "@/components/Analytics";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import { StoreProvider } from "@/components/StoreProvider";
 import { SITE, absoluteUrl, formatAddress } from "@/lib/site";
 import { getCategories, getProductIndex } from "@/lib/catalog";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const revalidate = 60;
 
@@ -79,9 +82,14 @@ export default async function RootLayout({ children }) {
           <CartDrawer />
           <CheckoutBar />
           <BottomNav />
+          <WhatsAppButton />
         </StoreProvider>
+        <Analytics />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
       </body>
+      {process.env.NEXT_PUBLIC_GA_ID && (
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+      )}
     </html>
   );
 }
