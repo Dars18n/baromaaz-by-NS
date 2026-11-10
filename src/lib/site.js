@@ -14,9 +14,9 @@ export const SITE = {
 
   // TODO: confirm all contact details
   email: "hello@baromaaz.com",
-  whatsapp: "+91 9373716673",
-  whatsappLink: "https://wa.me/9373716673",
-  phone: "+91 9373716673",
+  whatsapp: "+91 93737 16673",
+  whatsappLink: "https://wa.me/919373716673",
+  phone: "+91 93737 16673",
   hours: "Monday – Saturday, 10:00 am – 7:00 pm IST",
   address: {
     line1: "Baromaaz Studio, 2nd Floor, Shanti Kunj",
