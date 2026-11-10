@@ -1,5 +1,4 @@
 import Link from "next/link";
-import NewsletterForm from "./NewsletterForm";
 import Logo from "./Logo";
 import { SocialIcon } from "./Icons";
 import { SITE, formatAddress } from "@/lib/site";
@@ -39,8 +38,6 @@ export default function Footer({ categories = [] }) {
         <div>
           <p><Logo className="text-[30px]" /></p>
           <p className="mt-2 font-serif text-xl italic text-ivory/85">{SITE.tagline}</p>
-          <p className="mt-6 max-w-sm text-sm leading-6 text-ivory/75">Join the list for first access to every Monthly Drop — and 10% off your first order.</p>
-          <div className="mt-4 max-w-sm"><NewsletterForm dark id="footer-newsletter" /></div>
           <ul className="mt-6 flex gap-2" aria-label="Baromaaz on social media">
             {SITE.social.map((s) => (
               <li key={s.name}>

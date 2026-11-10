@@ -6,6 +6,7 @@ import Img from "../Img";
 import Reveal from "../Reveal";
 import { ChevronIcon } from "../Icons";
 import { formatPrice } from "@/lib/format";
+import { SITE } from "@/lib/site";
 
 // "12 months, 12 drops" — one card per month; swipe, arrows, keyboard or the month circles to move.
 export default function MonthDrops({ year, months, startKey }) {
@@ -119,7 +120,7 @@ export default function MonthDrops({ year, months, startKey }) {
                     )}
                   </>
                 ) : (
-                  <a href="#home-newsletter" className="flex min-h-[44px] w-full items-center justify-center rounded-full bg-terracotta px-5 text-sm font-medium text-ivory transition-colors hover:bg-terracotta-dark">
+                  <a href={`${SITE.whatsappLink}?text=${encodeURIComponent("Hi Baromaaz, please let me know when the next drop is live.")}`} target="_blank" rel="noopener noreferrer" className="flex min-h-[44px] w-full items-center justify-center rounded-full bg-terracotta px-5 text-sm font-medium text-ivory transition-colors hover:bg-terracotta-dark">
                     Get notified when it drops
                   </a>
                 )}

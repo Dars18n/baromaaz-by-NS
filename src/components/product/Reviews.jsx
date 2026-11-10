@@ -1,6 +1,6 @@
 import Img from "../Img";
-import { StarIcon, WhatsAppIcon } from "../Icons";
-import { SITE } from "@/lib/site";
+import { StarIcon } from "../Icons";
+import ReviewForm from "./ReviewForm";
 
 function Stars({ value, label }) {
   return (
@@ -10,9 +10,8 @@ function Stars({ value, label }) {
   );
 }
 
-// Shows only real, verified reviews from src/data/reviews.json. No reviews → no rating.
+// Shows approved reviews (Supabase). New reviews are submitted via ReviewForm and wait for approval.
 export default function Reviews({ product, reviews, rating }) {
-  const waText = encodeURIComponent(`Hi Baromaaz! I'd like to review my ${product.name}. Order no: \nRating (1-5): \nMy review: \n(Photos attached)`);
   return (
     <section aria-labelledby="reviews-heading" className="container-x border-t border-ink/10 pt-14 md:pt-20">
       <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
@@ -26,16 +25,13 @@ export default function Reviews({ product, reviews, rating }) {
             </div>
           )}
         </div>
-        <div className="flex flex-wrap gap-3">
-          <a href={`${SITE.whatsappLink}?text=${waText}`} target="_blank" rel="noopener noreferrer" className="btn-outline"><WhatsAppIcon width={18} height={18} /> Review on WhatsApp</a>
-          <a href={`mailto:${SITE.email}?subject=${encodeURIComponent(`Review: ${product.name}`)}`} className="btn-outline">Review by email</a>
-        </div>
+        <a href="#write-review" className="btn-outline">Write a review</a>
       </div>
 
       {reviews.length === 0 ? (
         <div className="mt-10 bg-beige px-6 py-10 text-center">
           <p className="font-serif text-2xl">No reviews yet</p>
-          <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-ink-soft">Bought this piece? Send us your review with a photo — we verify every review against an order before publishing it here.</p>
+          <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-ink-soft">Bought this piece? Be the first to share how it fits and feels — we check every review before publishing it here.</p>
         </div>
       ) : (
         <ul className="mt-10 grid gap-6 md:grid-cols-2">
@@ -59,6 +55,8 @@ export default function Reviews({ product, reviews, rating }) {
           ))}
         </ul>
       )}
+
+      <ReviewForm slug={product.slug} />
     </section>
   );
 }

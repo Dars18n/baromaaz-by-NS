@@ -5,7 +5,6 @@ import MonthlyDrop from "@/components/home/MonthlyDrop";
 import ProductTabs from "@/components/home/ProductTabs";
 import MostWanted from "@/components/home/MostWanted";
 import ShopTheLook from "@/components/home/ShopTheLook";
-import NewsletterBand from "@/components/home/NewsletterBand";
 import MonthDrops from "@/components/home/MonthDrops";
 import { dropProducts, getLooks, getMonthlyDrops, getProducts, mostWanted, newArrivals } from "@/lib/catalog";
 
@@ -31,7 +30,6 @@ export default async function HomePage() {
       {fresh.length > 0 && <ProductTabs tabs={tabs} />}
       {wantedCards.length > 0 && <MostWanted products={wantedCards} />}
       {looks.length > 0 && <ShopTheLook looks={looks} productsBySlug={bySlug} />}
-      <NewsletterBand />
     </>
   );
 }
