@@ -52,6 +52,7 @@ export const SITE = {
   drop: {
     name: "November",
     month: "November 2026",
+    tagline: "November wedding looks that steal the spotlight",
     blurb:
       "Seven festive-ready pieces in deep maroon, antique gold and earth — hand-finished in our Jaipur studio, in limited numbers. When they're gone, they're gone.",
   },
