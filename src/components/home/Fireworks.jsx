@@ -147,5 +147,5 @@ export default function Fireworks({ durationMs = 60000 }) {
     };
   }, [durationMs]);
 
-  return <canvas ref={ref} aria-hidden="true" className="pointer-events-none absolute inset-0 -z-[5] h-full w-full" />;
+  return <canvas ref={ref} aria-hidden="true" className="pointer-events-none absolute inset-0 z-10 h-full w-full" />;
 }

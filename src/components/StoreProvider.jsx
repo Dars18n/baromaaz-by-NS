@@ -6,12 +6,15 @@ import { track } from "@/lib/analytics";
 
 const StoreContext = createContext(null);
 const KEY = "baromaaz-store-v1";
-const empty = { cart: [], wishlist: [], orders: [], returns: [], profile: { name: "", email: "", phone: "", address: "", city: "", pincode: "" } };
+const empty = { cart: [], wishlist: [], orders: [], returns: [], profile: { name: "", phone: "", address: "", city: "", pincode: "" } };
 
 function readStore() {
   try {
     const raw = window.localStorage.getItem(KEY);
-    return raw ? { ...empty, ...JSON.parse(raw) } : empty;
+    if (!raw) return empty;
+    const stored = JSON.parse(raw);
+    const profile = Object.fromEntries(Object.entries(stored.profile || {}).filter(([key]) => key !== "email"));
+    return { ...empty, ...stored, profile: { ...empty.profile, ...profile } };
   } catch {
     return empty;
   }

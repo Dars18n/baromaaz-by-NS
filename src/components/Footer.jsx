@@ -12,7 +12,7 @@ const clientCare = [
 ];
 const policies = [
   { href: "/shipping-policy", label: "Shipping Policy" },
-  { href: "/returns-exchange-policy", label: "Returns & Exchange Policy" },
+  { href: "/returns-exchange-policy", label: "Returns & Refunds" },
   { href: "/privacy-policy", label: "Privacy Policy" },
   { href: "/terms-of-service", label: "Terms of Service" },
   { href: "/grievance-officer", label: "Grievance Officer" },
@@ -48,20 +48,19 @@ export default function Footer({ categories = [] }) {
             ))}
           </ul>
         </div>
-        <Col title="Shop" links={[{ href: "/drop", label: "This Month's Drop" }, { href: "/new-in", label: "New In" }]} />
+        <Col title="Shop" links={[{ href: "/drop", label: "This Month's Drop" }, { href: "/new-in", label: "Shop all" }]} />
         <Col title="Client care" links={clientCare} />
         <div>
           <Col title="Policies" links={policies} />
           <address className="mt-8 text-[13px] not-italic leading-6 text-ivory/70">
             {formatAddress()}<br />
-            <a href={`mailto:${SITE.email}`} className="underline">{SITE.email}</a><br />
             WhatsApp: <a href={SITE.whatsappLink} className="underline" target="_blank" rel="noopener noreferrer">{SITE.whatsapp}</a>
           </address>
         </div>
       </div>
       <div className="border-t border-ivory/15">
         <div className="container-x flex flex-col gap-2 py-6 text-xs text-ivory/65 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} Baromaaz. Handcrafted in {SITE.address.state}, India.</p>
+          <p>© {new Date().getFullYear()} Baromaaz. Handcrafted in {SITE.address.city}, India.</p>
           <a href="https://nishissolution.com/" className="underline underline-offset-2 transition-colors hover:text-ivory">
             Powered by Nishi&apos;s Solution
           </a>

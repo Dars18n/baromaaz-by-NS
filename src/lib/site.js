@@ -13,16 +13,15 @@ export const SITE = {
   ogImage: "/images/og/og-default.jpg",
 
   // TODO: confirm all contact details
-  email: "hello@baromaaz.com",
-  whatsapp: "+91 93737 16673",
-  whatsappLink: "https://wa.me/919373716673",
-  phone: "+91 93737 16673",
+  whatsapp: "+91 86907 08691",
+  whatsappLink: "https://wa.me/918690708691",
+  phone: "+91 86907 08691",
   hours: "Monday – Saturday, 10:00 am – 7:00 pm IST",
   address: {
     line1: "Jeevan Vihar Colony, 17, Rampura Rd, Ram Nagar",
     line2: "Kalyanpura, Sanganer",
     city: "Jaipur",
-    state: "Rajasthan",
+    state: "Jaipur",
     pincode: "302029",
     country: "India",
   },
@@ -43,7 +42,7 @@ export const SITE = {
       name: "Ms. Ananya Deshpande",
       designation: "Grievance Officer",
       email: "grievance@baromaaz.com",
-      phone: "+91 98765 43210",
+      phone: "+91 86907 08691",
       hours: "Monday – Friday, 10:00 am – 6:00 pm IST",
     },
     lastUpdated: "30 October 2026",
@@ -51,10 +50,10 @@ export const SITE = {
 
   // The current Monthly Drop
   drop: {
-    name: "Diya",
+    name: "November",
     month: "November 2026",
     blurb:
-      "Seven festive-ready pieces in deep maroon, antique gold and earth — hand-finished in our Pune studio, in limited numbers. When they're gone, they're gone.",
+      "Seven festive-ready pieces in deep maroon, antique gold and earth — hand-finished in our Jaipur studio, in limited numbers. When they're gone, they're gone.",
   },
 
   // "12 Months. 12 Drops." — choose the piece shown for any month (1 = January … 12 = December).
@@ -73,6 +72,6 @@ export const SITE = {
 };
 
 export const formatAddress = (a = SITE.address) =>
-  `${a.line1}, ${a.line2}, ${a.city}, ${a.state} ${a.pincode}, ${a.country}`;
+  `${a.line1}, ${a.line2}, ${a.city}${a.state && a.state !== a.city ? `, ${a.state}` : ""} ${a.pincode}, ${a.country}`;
 
 export const absoluteUrl = (path = "/") => `${SITE.url}${path.startsWith("/") ? path : `/${path}`}`;

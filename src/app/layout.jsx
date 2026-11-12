@@ -27,7 +27,7 @@ export const metadata = {
   title: { default: SITE.title, template: "%s | Baromaaz" },
   description: SITE.description,
   applicationName: "Baromaaz",
-  keywords: ["Indian ethnic wear online", "handcrafted kurtis", "Indo-western wear", "corsets", "co-ord sets", "festive wear", "ethnic dresses for women", "Baromaaz", "Maharashtra", "monthly drop"],
+  keywords: ["Indian ethnic wear online", "handcrafted kurtis", "Indo-western wear", "corsets", "co-ord sets", "festive wear", "ethnic dresses for women", "Baromaaz", "Jaipur", "monthly drop"],
   openGraph: {
     type: "website",
     siteName: "Baromaaz",
@@ -52,7 +52,6 @@ const orgJsonLd = {
   url: SITE.url,
   logo: absoluteUrl("/icon.png"),
   image: absoluteUrl(SITE.ogImage),
-  email: SITE.email,
   telephone: SITE.phone,
   address: {
     "@type": "PostalAddress",

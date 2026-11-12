@@ -66,7 +66,7 @@ export default function Header() {
               {menuOpen ? <CloseIcon /> : <MenuIcon />}
             </button>
             <nav aria-label="Main" className="hidden items-center gap-7 text-[13px] uppercase tracking-[0.16em] lg:flex">
-              <Link href="/new-in" className="link-underline py-1">New In</Link>
+              <Link href="/new-in" className="link-underline py-1">Shop all</Link>
               <Link
                 href="/drop"
                 className={`border px-4 py-2 transition-colors ${solid ? "border-terracotta-dark bg-terracotta-dark text-ivory hover:bg-ink hover:border-ink" : "border-ivory/80 hover:bg-ivory hover:text-ink"}`}
@@ -77,7 +77,7 @@ export default function Header() {
           </div>
 
           <Link href="/" aria-label="Baromaaz — home" className="flex min-h-[44px] shrink-0 items-center text-center">
-            <Logo className="text-[22px] md:text-[28px]" />
+            <Logo className="text-[38.5px] md:text-[49px]" />
           </Link>
 
           {/* right: search + icons */}
@@ -102,7 +102,7 @@ export default function Header() {
             <nav aria-label="Mobile" className="container-x py-6">
               <Link href="/drop" className="btn-terra w-full">This Month&rsquo;s Drop</Link>
               <ul className="mt-6 space-y-3 text-sm uppercase tracking-[0.14em] text-ink-soft">
-                <li><Link href="/new-in" className="block py-3">New In</Link></li>
+                <li><Link href="/new-in" className="block py-3">Shop all</Link></li>
                 <li><Link href="/account">My account</Link></li>
                 <li><Link href="/wishlist">Wishlist</Link></li>
                 <li><Link href="/about">Our story</Link></li>

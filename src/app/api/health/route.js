@@ -17,7 +17,7 @@ export function GET() {
       NEXT_PUBLIC_SUPABASE_URL: has("NEXT_PUBLIC_SUPABASE_URL") ? "yes" : "MISSING",
       NEXT_PUBLIC_SUPABASE_ANON_KEY: has("NEXT_PUBLIC_SUPABASE_ANON_KEY") ? "yes" : "MISSING",
       SUPABASE_SERVICE_ROLE_KEY: has("SUPABASE_SERVICE_ROLE_KEY") ? "yes" : "MISSING",
-      RESEND_API_KEY: has("RESEND_API_KEY") ? "yes" : "not set (order emails off)",
+      RESEND_API_KEY: has("RESEND_API_KEY") ? "yes" : "not set (order alerts off)",
       CHECKOUT_DEMO: has("CHECKOUT_DEMO") ? "SET — remove it" : "not set (good)",
     },
     { headers: { "Cache-Control": "no-store" } }

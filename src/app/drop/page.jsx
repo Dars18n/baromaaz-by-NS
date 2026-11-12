@@ -17,7 +17,7 @@ export default async function DropPage() {
   const [products, categories] = await Promise.all([dropProducts(), getCategories()]);
   return (
     <>
-      <PageHeader crumbs={[{ label: "This Month's Drop" }]} eyebrow={`Monthly Drop · ${SITE.drop.month}`} title={`The ${SITE.drop.name} Edit`} intro={SITE.drop.blurb} />
+      <PageHeader crumbs={[{ label: "This Month's Drop" }]} eyebrow={`Monthly Drop · ${SITE.drop.month}`} title={`The ${SITE.drop.name} Drop`} intro={SITE.drop.blurb} />
       <Suspense fallback={<div className="container-x min-h-[60vh]" />}>
         <ShopView products={products} categories={categories} />
       </Suspense>

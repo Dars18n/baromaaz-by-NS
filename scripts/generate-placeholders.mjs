@@ -210,7 +210,7 @@ await save(`<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1250" v
 const ogText = `
   <text x="600" y="300" text-anchor="middle" font-family="Cormorant Garamond SemiBold" font-size="120" letter-spacing="18" fill="#f8f3ec">BAROMAAZ</text>
   <text x="600" y="380" text-anchor="middle" font-family="Cormorant Garamond Medium" font-style="italic" font-size="46" fill="#f1dcc6">Har Mahina, Naya Libaas</text>
-  <text x="600" y="450" text-anchor="middle" font-family="Jost" font-size="22" letter-spacing="6" fill="#f1dcc6">HANDCRAFTED IN MAHARASHTRA · NEW DROP EVERY MONTH</text>`;
+  <text x="600" y="450" text-anchor="middle" font-family="Jost" font-size="22" letter-spacing="6" fill="#f1dcc6">HANDCRAFTED IN JAIPUR · NEW DROP EVERY MONTH</text>`;
 const ogDefault = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a4583c"/><stop offset="1" stop-color="#4a2418"/></linearGradient></defs>
   <rect width="1200" height="630" fill="url(#g)"/><rect x="30" y="30" width="1140" height="570" fill="none" stroke="#f1dcc6" stroke-opacity="0.5"/>${ogText}</svg>`;

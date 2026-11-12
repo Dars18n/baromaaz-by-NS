@@ -19,7 +19,7 @@ function Profile() {
   const { profile, saveProfile, notify, ready } = useStore();
   const [f, setF] = useState(profile);
   useEffect(() => { if (ready) setF(profile); }, [ready]); // eslint-disable-line react-hooks/exhaustive-deps
-  const fields = [["name", "Full name", "text", "name"], ["email", "Email", "email", "email"], ["phone", "Mobile number", "tel", "tel"], ["address", "Address", "text", "street-address"], ["city", "City", "text", "address-level2"], ["pincode", "PIN code", "text", "postal-code"]];
+  const fields = [["name", "Full name", "text", "name"], ["phone", "Mobile number", "tel", "tel"], ["address", "Address", "text", "street-address"], ["city", "City", "text", "address-level2"], ["pincode", "PIN code", "text", "postal-code"]];
   return (
     <form onSubmit={(e) => { e.preventDefault(); saveProfile(f); notify("Profile saved"); }} className="grid max-w-2xl gap-5 sm:grid-cols-2">
       {fields.map(([k, label, type, ac]) => (
@@ -88,7 +88,7 @@ function Returns({ preselect }) {
   return (
     <div className="grid gap-12 lg:grid-cols-[1fr_1fr]">
       <form onSubmit={submit} className="grid content-start gap-5">
-        <p className="text-[15px] leading-7 text-ink-soft">Unworn pieces with tags can be returned or exchanged within 7 days of delivery. See our <Link href="/returns-exchange-policy" className="underline">Returns &amp; Exchange Policy</Link>.</p>
+        <p className="text-[15px] leading-7 text-ink-soft">Unworn pieces with tags can be returned or exchanged within 7 days of delivery. See our <Link href="/returns-exchange-policy" className="underline">Returns &amp; Refunds Policy</Link>.</p>
         <div>
           <label htmlFor="rx-order" className="label">Order number</label>
           {orders.length ? (

@@ -22,7 +22,6 @@ function loadRazorpay() {
 const CONTACT = [
   { name: "name", label: "Full name", autoComplete: "name", required: true },
   { name: "phone", label: "Mobile number", type: "tel", autoComplete: "tel", required: true, pattern: "[6-9][0-9]{9}", inputMode: "numeric", maxLength: 10, hint: "10-digit number — we'll WhatsApp your order updates" },
-  { name: "email", label: "Email (optional)", type: "email", autoComplete: "email", full: true },
 ];
 const ADDRESS = [
   { name: "flat", label: "Flat / house no.", autoComplete: "address-line1", required: true, placeholder: "e.g. Flat 304, B-wing" },
@@ -94,7 +93,7 @@ function LocateButton({ onFound }) {
 
 export default function CheckoutView() {
   const { cartLines, subtotal, shipping, total: itemsTotal, profile, saveProfile, addOrder, clearCart, ready } = useStore();
-  const [form, setForm] = useState({ name: "", email: "", phone: "", flat: "", building: "", area: "", landmark: "", city: "", state: "Maharashtra", pincode: "" });
+  const [form, setForm] = useState({ name: "", phone: "", flat: "", building: "", area: "", landmark: "", city: "", state: "", pincode: "" });
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(null);
   const [placed, setPlaced] = useState(null);
@@ -174,7 +173,7 @@ export default function CheckoutView() {
         name: "Baromaaz",
         description: SITE.tagline,
         image: "/icon.png",
-        prefill: { name: form.name, contact: form.phone, ...(form.email ? { email: form.email } : {}) },
+        prefill: { name: form.name, contact: form.phone },
         notes: { address: `${fullAddress(form)}, ${form.city}, ${form.state} ${form.pincode}` },
         theme: { color: "#86432b" },
         handler: async (resp) => {
@@ -199,7 +198,7 @@ export default function CheckoutView() {
       <div className="container-x max-w-2xl pt-12 text-center md:pt-20">
         <p className="eyebrow">Thank you, {placed.address.name.split(" ")[0]}</p>
         <h1 className="h-display mt-3 text-5xl md:text-6xl">Your order is placed</h1>
-        <p className="mt-4 text-[15px] leading-7 text-ink-soft">Order <strong className="font-medium">{placed.id}</strong> · {formatPrice(placed.total)}{placed.method === "cod" ? " — please keep this amount ready in cash when it's delivered" : ""}. We&rsquo;ll WhatsApp updates to {placed.address.phone}{placed.address.email ? ` and email ${placed.address.email}` : ""} when it ships.</p>
+        <p className="mt-4 text-[15px] leading-7 text-ink-soft">Order <strong className="font-medium">{placed.id}</strong> · {formatPrice(placed.total)}{placed.method === "cod" ? " — please keep this amount ready in cash when it's delivered" : ""}. We&rsquo;ll WhatsApp updates to {placed.address.phone} when it ships.</p>
         {placed.demo && placed.method !== "cod" && <p className="mx-auto mt-4 max-w-md bg-beige px-4 py-3 text-sm text-ink-soft">Demo mode: Razorpay keys aren&rsquo;t configured yet, so no payment was taken.</p>}
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link href="/account?tab=orders" className="btn-dark">View my orders</Link>
@@ -231,6 +230,7 @@ export default function CheckoutView() {
               <div>
                 <label htmlFor="co-state" className="label">State</label>
                 <select id="co-state" required value={form.state} onChange={set("state")} autoComplete="address-level1" className="input">
+                  <option value="">Select your state</option>
                   {INDIAN_STATES.map((s) => <option key={s}>{s}</option>)}
                 </select>
               </div>

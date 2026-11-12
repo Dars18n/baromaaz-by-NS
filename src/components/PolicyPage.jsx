@@ -4,7 +4,7 @@ import { SITE } from "@/lib/site";
 
 const LINKS = [
   ["/shipping-policy", "Shipping Policy"],
-  ["/returns-exchange-policy", "Returns & Exchange Policy"],
+  ["/returns-exchange-policy", "Returns & Refunds"],
   ["/privacy-policy", "Privacy Policy"],
   ["/terms-of-service", "Terms of Service"],
   ["/grievance-officer", "Grievance Officer"],

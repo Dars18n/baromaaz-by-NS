@@ -1,6 +1,6 @@
 # Baromaaz — Har Mahina, Naya Libaas
 
-The e-commerce website for **Baromaaz**, a handcrafted Indian ethnic-fusion label from Maharashtra with a new limited collection every month.
+The e-commerce website for **Baromaaz**, a handcrafted Indian ethnic-fusion label from Jaipur with a new limited collection every month.
 
 Built with **Next.js 15 (App Router) + Tailwind CSS**. Every page is pre-rendered as HTML with its own title, description, canonical tag and Open Graph image, so links preview properly on WhatsApp, Instagram and Google.
 

@@ -58,7 +58,7 @@ export default function Accordions({ product }) {
           <li>Dispatched in 2–3 working days; delivered across India in 4–7 working days.</li>
           <li>Easy exchange or return within 7 days of delivery on unworn pieces with tags.</li>
         </ul>
-        <p className="mt-3">Read our <Link href="/shipping-policy" className="underline">Shipping Policy</Link> and <Link href="/returns-exchange-policy" className="underline">Returns &amp; Exchange Policy</Link>.</p>
+        <p className="mt-3">Read our <Link href="/shipping-policy" className="underline">Shipping Policy</Link> and <Link href="/returns-exchange-policy" className="underline">Returns &amp; Refunds Policy</Link>.</p>
       </Item>
     </div>
   );

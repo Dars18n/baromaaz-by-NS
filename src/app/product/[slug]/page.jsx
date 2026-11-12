@@ -26,7 +26,7 @@ export async function generateMetadata({ params }) {
   const firstLine = p.description ? ` ${p.description.split(". ")[0].replace(/\.$/, "")}.` : "";
   return pageMeta({
     title: `Buy ${p.name}${p.color ? ` — ${p.color}` : ""} Online`,
-    description: `${p.name} by Baromaaz at ${formatPrice(p.price)}.${p.fabric ? ` ${p.fabric},` : ""} handcrafted in Maharashtra.${firstLine}`,
+    description: `${p.name} by Baromaaz at ${formatPrice(p.price)}.${p.fabric ? ` ${p.fabric},` : ""} handcrafted in Jaipur.${firstLine}`,
     path: `/product/${p.slug}`,
     image: p.og,
     imageAlt: `${p.name} by Baromaaz`,
@@ -44,7 +44,7 @@ export default async function ProductPage({ params }) {
     "@context": "https://schema.org",
     "@type": "Product",
     name: p.name,
-    description: p.description || `${p.name} by Baromaaz, handcrafted in Maharashtra.`,
+    description: p.description || `${p.name} by Baromaaz, handcrafted in Jaipur.`,
     sku: p.slug.toUpperCase(),
     image: p.images.map((i) => (i.startsWith("http") ? i : absoluteUrl(i))),
     brand: { "@type": "Brand", name: "Baromaaz" },
