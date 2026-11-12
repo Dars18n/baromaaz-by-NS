@@ -77,7 +77,7 @@ export default function Header() {
           </div>
 
           <Link href="/" aria-label="Baromaaz — home" className="flex min-h-[44px] shrink-0 items-center text-center">
-            <Logo className="text-[38.5px] md:text-[49px]" />
+            <Logo className={`text-[38.5px] md:text-[49px] [&_img]:transition-[filter] [&_img]:duration-300 ${solid ? "[&_img]:brightness-0" : ""}`} />
           </Link>
 
           {/* right: search + icons */}
