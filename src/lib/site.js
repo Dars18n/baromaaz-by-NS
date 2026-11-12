@@ -62,7 +62,7 @@ export const SITE = {
 
   // Festive extras — set diwali to false after the festival to switch the fireworks off
   festive: {
-    diwali: true,
+    diwali: false,
   },
 
   freeShippingAbove: 1499,
