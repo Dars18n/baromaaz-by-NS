@@ -43,7 +43,7 @@ export default function Hero() {
 
         <div className="hero-buttons flex flex-col items-center">
           <Link
-            href="/shop"
+            href="/new-in"
             className="inline-flex min-h-[52px] animate-fadeUp items-center justify-center rounded-full border border-white/80 bg-black/35 px-9 text-[17px] font-medium tracking-[0.01em] text-white backdrop-blur-[2px] transition-colors duration-300 [animation-delay:300ms] hover:bg-white hover:text-ink md:min-h-[58px] md:px-12 md:text-xl"
           >
             Explore our collection

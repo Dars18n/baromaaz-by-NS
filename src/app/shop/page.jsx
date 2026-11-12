@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
-export const revalidate = 60;
-
-export default function ShopPage() {
-  redirect("/drop");
+// Old /shop links (and filters like ?month=2026-05) → the full collection on "Shop all".
+export default async function ShopPage({ searchParams }) {
+  const qs = new URLSearchParams(await searchParams).toString();
+  redirect(`/new-in${qs ? `?${qs}` : ""}`);
 }
