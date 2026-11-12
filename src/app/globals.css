@@ -42,3 +42,14 @@
 /* scroll-reveal */
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
 .reveal.is-visible { opacity: 1; transform: none; }
+
+/* Hero layout follows the SHAPE of the screen:
+   wide screens (laptops, desktops, landscape, 5:4 or wider) → photo fills the screen, text on top
+   tall screens (phones, portrait tablets)     → whole photo shown uncropped, text below */
+.hero-wide { display: none; }
+.hero-content { padding-top: 1.5rem; }
+@media (min-aspect-ratio: 5/4) {
+  .hero-wide { display: block; }
+  .hero-tall { display: none; }
+  .hero-content { padding-top: 112px; }
+}
