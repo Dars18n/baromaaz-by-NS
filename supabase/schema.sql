@@ -179,10 +179,10 @@ create policy "public read product images" on storage.objects
 
 -- ═══════════════ Starting categories ═══════════════
 insert into public.categories (slug, name, image_url, show_on_home, sort_order) values
-  ('tops',        'Tops',        '/images/categories/tops-category.webp',    true,  1),
-  ('kurtis',      'Kurtis',      '/images/categories/kurtis-category.webp',  true,  2),
-  ('corsets',     'Corsets',     '/images/categories/corsets-category.webp', true,  3),
-  ('dresses',     'Dresses',     '/images/categories/dresses-category.webp', true,  4),
+  ('tops',        'Tops',        '/images/categories/tops-category-2.webp',    true,  1),
+  ('kurtis',      'Kurtis',      '/images/categories/kurtis-category-2.webp',  true,  2),
+  ('corsets',     'Corsets',     '/images/categories/corsets-category-2.webp', true,  3),
+  ('dresses',     'Dresses',     '/images/categories/dresses-category-2.webp', true,  4),
   ('co-ord-sets', 'Co-ord Sets', '/images/categories/co-ord-sets.webp',      false, 5),
-  ('festive',     'Festive',     '/images/categories/festive-category.webp', true,  6)
+  ('festive',     'Festive',     '/images/categories/festive-category-2.webp', true,  6)
 on conflict (slug) do nothing;

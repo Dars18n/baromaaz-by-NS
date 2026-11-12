@@ -4,28 +4,28 @@
     "name": "Tops",
     "base": "#c98b6b",
     "accent": "#f6e9db",
-    "image": "/images/categories/tops-category.webp"
+    "image": "/images/categories/tops-category-2.webp"
   },
   {
     "slug": "kurtis",
     "name": "Kurtis",
     "base": "#e7dac4",
     "accent": "#9c4a2f",
-    "image": "/images/categories/kurtis-category.webp"
+    "image": "/images/categories/kurtis-category-2.webp"
   },
   {
     "slug": "corsets",
     "name": "Corsets",
     "base": "#2a2320",
     "accent": "#c9a45c",
-    "image": "/images/categories/corsets-category.webp"
+    "image": "/images/categories/corsets-category-2.webp"
   },
   {
     "slug": "dresses",
     "name": "Dresses",
     "base": "#a8673f",
     "accent": "#f4e4cf",
-    "image": "/images/categories/dresses-category.webp"
+    "image": "/images/categories/dresses-category-2.webp"
   },
   {
     "slug": "co-ord-sets",
@@ -39,6 +39,6 @@
     "name": "Festive",
     "base": "#5e1d24",
     "accent": "#e2c28a",
-    "image": "/images/categories/festive-category.webp"
+    "image": "/images/categories/festive-category-2.webp"
   }
 ]

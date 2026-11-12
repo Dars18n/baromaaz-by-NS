@@ -58,7 +58,11 @@ export default function ShopView({ products, categories = [], lockedCategory = n
       if (sizes.length && !sizes.some((s) => (p.stock?.[s] ?? 0) > 0)) return false;
       if (prices.length && !prices.some((id) => { const r = PRICE_RANGES.find((x) => x.id === id); return r && p.price >= r.min && p.price <= r.max; })) return false;
       if (month && !p.added?.startsWith(month)) return false;
-      if (q && !`${p.name} ${p.color} ${p.fabric} ${p.category}`.toLowerCase().includes(q)) return false;
+      if (q) {
+        const hay = `${p.name} ${p.color} ${p.fabric} ${p.category}`.toLowerCase();
+        // every word must match (plural/singular both work: "kurti" finds "kurtis", "dresses" finds "dress")
+        if (!q.split(/\s+/).every((w) => hay.includes(w) || hay.includes(w.replace(/(es|s)$/, "")))) return false;
+      }
       return true;
     });
     if (sort === "newest") out = [...out].sort((a, b) => b.added.localeCompare(a.added));
