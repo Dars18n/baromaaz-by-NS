@@ -109,7 +109,7 @@ export default function Header() {
           </div>
 
           <Link href="/" aria-label="Baromaaz — home" className="flex min-h-[44px] shrink-0 items-center text-center">
-            <Logo className={`text-[38.5px] md:text-[49px] [&_img]:transition-[filter] [&_img]:duration-300 ${solid ? "[&_img]:brightness-0" : ""}`} />
+            <Logo className={`text-[38.5px] max-[374px]:text-[31px] md:text-[49px] [&_img]:transition-[filter] [&_img]:duration-300 ${solid ? "[&_img]:brightness-0" : ""}`} />
           </Link>
 
           {/* right: search + icons */}
@@ -118,7 +118,7 @@ export default function Header() {
             <button type="button" className={`${iconBtn} lg:hidden`} aria-label={searchOpen ? "Close search" : "Open search"} aria-expanded={searchOpen} onClick={() => (setSearchOpen((v) => !v), setMenuOpen(false))}>
               {searchOpen ? <CloseIcon /> : <SearchIcon />}
             </button>
-            <Link href="/wishlist" className={iconBtn} aria-label={`Wishlist${ready && wishlist.length ? `, ${wishlist.length} items` : ""}`}>
+            <Link href="/wishlist" className={`${iconBtn} max-[374px]:hidden`} aria-label={`Wishlist${ready && wishlist.length ? `, ${wishlist.length} items` : ""}`}>
               <HeartIcon />
               {ready && <Badge n={wishlist.length} />}
             </Link>

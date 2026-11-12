@@ -6,7 +6,7 @@ import { SITE, formatAddress } from "@/lib/site";
 
 export const metadata = pageMeta({
   title: "Contact Us — WhatsApp & Studio Address",
-  description: `Get in touch with Baromaaz on WhatsApp (${SITE.whatsapp}), or visit our studio in ${SITE.address.city}.`,
+  description: `Get in touch with Baromaaz on WhatsApp (${SITE.whatsapp}) or email (${SITE.email}), or visit our studio in ${SITE.address.city}.`,
   path: "/contact",
 });
 
@@ -20,6 +20,10 @@ export default function ContactPage() {
           <div>
             <h2 className="label font-sans">WhatsApp</h2>
             <a href={SITE.whatsappLink} target="_blank" rel="noopener noreferrer" className="mt-1 inline-flex min-h-[44px] items-center gap-2 font-serif text-2xl hover:text-terracotta-dark"><WhatsAppIcon /> {SITE.whatsapp}</a>
+          </div>
+          <div>
+            <h2 className="label font-sans">Email</h2>
+            <a href={`mailto:${SITE.email}`} className="mt-1 inline-flex min-h-[44px] items-center break-all font-serif text-2xl hover:text-terracotta-dark">{SITE.email}</a>
           </div>
           <div>
             <h2 className="label font-sans">Hours</h2>

@@ -53,7 +53,7 @@ export default function CartDrawer() {
             </ul>
             <div className="border-t border-ink/10 px-5 py-5">
               <div className="flex justify-between text-[15px]"><span>Subtotal</span><span className="font-medium">{formatPrice(subtotal)}</span></div>
-              <p className="mt-1 text-xs text-ink-muted">Shipping and taxes calculated at checkout. Prices include GST.</p>
+              <p className="mt-1 text-xs text-ink-muted">Shipping calculated at checkout.</p>
               <Link href="/checkout" className="btn-dark mt-4 w-full" onClick={() => setCartOpen(false)}>Checkout</Link>
               <Link href="/cart" className="mt-3 block text-center text-xs uppercase tracking-[0.16em] underline underline-offset-4" onClick={() => setCartOpen(false)}>View bag</Link>
             </div>

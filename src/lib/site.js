@@ -16,6 +16,7 @@ export const SITE = {
   whatsapp: "+91 86907 08691",
   whatsappLink: "https://wa.me/918690708691",
   phone: "+91 86907 08691",
+  email: "support@baromaaz.com",
   hours: "Monday – Saturday, 10:00 am – 7:00 pm IST",
   address: {
     line1: "Jeevan Vihar Colony, 17, Rampura Rd, Ram Nagar",
@@ -37,11 +38,10 @@ export const SITE = {
   // Required under the Consumer Protection (E-Commerce) Rules, 2020 — TODO: fill in
   legal: {
     entity: "Baromaaz (Proprietorship)",
-    gstin: "27XXXXXXXXXXXZX",
     grievanceOfficer: {
-      name: "Ms. Ananya Deshpande",
+      name: "Komal Meena",
       designation: "Grievance Officer",
-      email: "grievance@baromaaz.com",
+      email: "support@baromaaz.com",
       phone: "+91 86907 08691",
       hours: "Monday – Friday, 10:00 am – 6:00 pm IST",
     },

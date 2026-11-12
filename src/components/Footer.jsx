@@ -54,7 +54,8 @@ export default function Footer({ categories = [] }) {
           <Col title="Policies" links={policies} />
           <address className="mt-8 text-[13px] not-italic leading-6 text-ivory/70">
             {formatAddress()}<br />
-            WhatsApp: <a href={SITE.whatsappLink} className="underline" target="_blank" rel="noopener noreferrer">{SITE.whatsapp}</a>
+            WhatsApp: <a href={SITE.whatsappLink} className="underline" target="_blank" rel="noopener noreferrer">{SITE.whatsapp}</a><br />
+            Email: <a href={`mailto:${SITE.email}`} className="underline">{SITE.email}</a>
           </address>
         </div>
       </div>

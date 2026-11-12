@@ -33,7 +33,7 @@ export default function CartView() {
               <div className="flex justify-between"><dt>Shipping</dt><dd>{shipping ? formatPrice(shipping) : "Free"}</dd></div>
               <div className="flex justify-between border-t border-ink/15 pt-3 text-lg font-medium"><dt>Total</dt><dd>{formatPrice(total)}</dd></div>
             </dl>
-            <p className="mt-2 text-xs text-ink-muted">Inclusive of GST. {shipping ? `Add ${formatPrice(SITE.freeShippingAbove - subtotal)} more for free shipping.` : ""}</p>
+            <p className="mt-2 text-xs text-ink-muted">{shipping ? `Add ${formatPrice(SITE.freeShippingAbove - subtotal)} more for free shipping.` : ""}</p>
             <Link href="/checkout" className="btn-dark mt-6 w-full">Proceed to checkout</Link>
             <p className="mt-4 text-center text-xs text-ink-muted">Secure payment via Razorpay · UPI, cards, netbanking & wallets</p>
           </aside>

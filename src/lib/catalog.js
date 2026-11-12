@@ -87,7 +87,9 @@ const loadCatalog = unstable_cache(
     return {
       source: "supabase",
       products,
-      categories: catRes.data.map((c) => ({ slug: c.slug, name: c.name, image: c.image_url, showOnHome: c.show_on_home })),
+      // Category photos come from src/data/categories.json when set there (so new photos only need a push),
+      // otherwise from the database.
+      categories: catRes.data.map((c) => ({ slug: c.slug, name: c.name, image: sampleCategories.find((s) => s.slug === c.slug)?.image || c.image_url, showOnHome: c.show_on_home })),
       reviews: revRes.data.map((r) => ({ ...r, product: bySlugId[r.product_id], text: r.body, date: r.created_at.slice(0, 10) })),
     };
   },

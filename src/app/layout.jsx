@@ -53,6 +53,7 @@ const orgJsonLd = {
   logo: absoluteUrl("/icon.png"),
   image: absoluteUrl(SITE.ogImage),
   telephone: SITE.phone,
+  email: SITE.email,
   address: {
     "@type": "PostalAddress",
     streetAddress: `${SITE.address.line1}, ${SITE.address.line2}`,
