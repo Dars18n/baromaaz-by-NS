@@ -44,12 +44,21 @@
 .reveal.is-visible { opacity: 1; transform: none; }
 
 /* Hero layout follows the SHAPE of the screen:
-   wide screens (laptops, desktops, landscape, 5:4 or wider) → photo fills the screen, text on top
-   tall screens (phones, portrait tablets)     → whole photo shown uncropped, text below */
-.hero-wide { display: none; }
-.hero-content { padding-top: 1.5rem; }
+   wide screens (laptops, desktops, landscape — 5:4 or wider): wide photo, everything centred on top
+   tall screens (phones, upright tablets): tall photo filling the screen; tagline + logo in the middle
+   over the girls (just below their faces), buttons at the bottom */
+.hero-photo { object-position: 50% 0%; }
+.hero-shade { background: linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.1) 25%, rgba(0,0,0,.3) 45%, rgba(0,0,0,.45) 60%, rgba(0,0,0,.25) 75%, rgba(0,0,0,.7)); }
+.hero-content { flex: 1 1 auto; justify-content: flex-end; padding-top: 104px; padding-bottom: 1.75rem; }
+.hero-mid { position: absolute; left: 0; right: 0; top: 57%; transform: translateY(-50%); padding: 0 1.25rem; }
+@media (min-width: 768px) {
+  .hero-content { padding-top: 136px; padding-bottom: 3rem; }
+  .hero-mid { top: 60%; }
+}
 @media (min-aspect-ratio: 5/4) {
-  .hero-wide { display: block; }
-  .hero-tall { display: none; }
-  .hero-content { padding-top: 112px; }
+  .hero-photo { object-position: 50% 22%; }
+  .hero-shade { background: rgba(0,0,0,.45); }
+  .hero-content { flex: 0 0 auto; justify-content: center; padding-top: 112px; padding-bottom: 3rem; }
+  .hero-mid { position: static; transform: none; padding: 0; }
+  .hero-buttons { margin-top: min(3rem, 5vh); }
 }
