@@ -1,5 +1,6 @@
 import Hero from "@/components/home/Hero";
 import TrustStrip from "@/components/home/TrustStrip";
+import CategoryScroller from "@/components/home/CategoryScroller";
 import MonthlyDrop from "@/components/home/MonthlyDrop";
 import ProductTabs from "@/components/home/ProductTabs";
 import MostWanted from "@/components/home/MostWanted";
@@ -23,6 +24,7 @@ export default async function HomePage() {
     <>
       <Hero />
       <TrustStrip />
+      <CategoryScroller />
       {monthly.months.length > 0 && <MonthDrops year={monthly.year} months={monthly.months} startKey={monthly.startKey} />}
       {drop.length > 0 && <MonthlyDrop products={drop} />}
       {fresh.length > 0 && <ProductTabs tabs={tabs} />}
