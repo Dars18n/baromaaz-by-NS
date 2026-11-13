@@ -100,6 +100,7 @@ export function StoreProvider({ children, products = [] }) {
 
   const saveProfile = useCallback((profile) => setState((s) => ({ ...s, profile: { ...s.profile, ...profile } })), []);
   const addOrder = useCallback((order) => setState((s) => ({ ...s, orders: [order, ...s.orders] })), []);
+  const updateOrder = useCallback((id, patch) => setState((s) => ({ ...s, orders: s.orders.map((o) => (o.id === id ? { ...o, ...patch } : o)) })), []);
   const addReturn = useCallback((req) => setState((s) => ({ ...s, returns: [req, ...s.returns] })), []);
 
   const cartLines = useMemo(
@@ -134,6 +135,7 @@ export function StoreProvider({ children, products = [] }) {
     isWishlisted: (slug) => state.wishlist.includes(slug),
     saveProfile,
     addOrder,
+    updateOrder,
     addReturn,
     notify,
   };

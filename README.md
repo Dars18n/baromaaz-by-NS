@@ -96,6 +96,28 @@ Without keys, checkout runs in **demo mode**: orders are recorded as "Test order
 
 The cart, wishlist, profile, order history and return/exchange requests are stored in the shopper's browser (localStorage). Return/exchange requests are also sent to you through a pre-filled WhatsApp message. For logins that sync across devices, add an auth provider later (e.g. Clerk, Supabase Auth or NextAuth with phone OTP).
 
+## 11. Admin dashboard (`/admin`)
+
+Sign in at **https://www.baromaaz.com/admin** with the shop email (`support@baromaaz.com`).
+
+**One-time setup**
+
+1. Supabase → SQL Editor → run `supabase/004_admin_dashboard.sql` (adds cancellation reasons + the "new order" markers).
+2. Make the login secrets: `npm run admin:hash -- "your password"` — paste the 3 lines it prints into `.env.local` **and** Vercel → Settings → Environment Variables, then redeploy. Only a hash of the password is stored, never the password.
+3. Make sure `SUPABASE_SERVICE_ROLE_KEY` is set (the dashboard uses it on the server only).
+
+**What it does**
+
+| Tab | |
+|---|---|
+| Orders | New orders appear within ~15 s with a chime, a pop-up and (if enabled) a desktop notification. Open an order to see items, address, payment; mark packed → shipped (with tracking link) → delivered; or cancel with a reason. |
+| Cancellations | Every cancelled order with **who** cancelled and **why**. Unread ones are red; the tab shows a badge. Online-paid cancellations show "Refund due" until you refund in Razorpay and tap *Mark refunded*. |
+| Products | Add a product (photos are resized in the browser, share image is made automatically), hide/show, or delete it (also removes its photos). The shop updates immediately. |
+
+Customers can cancel from **My Account → Orders → Cancel order** (until the order is packed). They pick a reason; the order number + the mobile number used at checkout must match. Cancelling puts the stock back and emails you (same Resend setup as new-order emails).
+
+Security: sessions are signed, `httpOnly`, `SameSite=Strict` cookies that expire after 12 hours; login is limited to 6 tries per 15 minutes; every `/api/admin/*` route re-checks the session. To change the password, run `admin:hash` again and update the env vars.
+
 ## 10. SEO & accessibility checklist (done)
 
 - Clean URLs: `/shop`, `/shop/kurtis`, `/product/<slug>`, `/about`, `/drop`, `/new-in`, no `#/` routes

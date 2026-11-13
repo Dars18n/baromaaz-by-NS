@@ -16,6 +16,7 @@ import CheckoutBar from "@/components/CheckoutBar";
 import Analytics from "@/components/Analytics";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { StoreProvider } from "@/components/StoreProvider";
+import HideOnAdmin from "@/components/HideOnAdmin";
 import { SITE, absoluteUrl, formatAddress } from "@/lib/site";
 import { getCategories, getProductIndex } from "@/lib/catalog";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -76,15 +77,15 @@ export default async function RootLayout({ children }) {
       <body>
         <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[100] focus:bg-ink focus:px-4 focus:py-2 focus:text-ivory">Skip to content</a>
         <StoreProvider products={productIndex}>
-          <Header categories={categories} />
+          <HideOnAdmin><Header categories={categories} /></HideOnAdmin>
           <main id="main">{children}</main>
-          <Footer categories={categories} />
-          <CartDrawer />
-          <CheckoutBar />
-          <BottomNav />
-          <WhatsAppButton />
+          <HideOnAdmin><Footer categories={categories} /></HideOnAdmin>
+          <HideOnAdmin><CartDrawer /></HideOnAdmin>
+          <HideOnAdmin><CheckoutBar /></HideOnAdmin>
+          <HideOnAdmin><BottomNav /></HideOnAdmin>
+          <HideOnAdmin><WhatsAppButton /></HideOnAdmin>
         </StoreProvider>
-        <Analytics />
+        <HideOnAdmin><Analytics /></HideOnAdmin>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
       </body>
       {process.env.NEXT_PUBLIC_GA_ID && (

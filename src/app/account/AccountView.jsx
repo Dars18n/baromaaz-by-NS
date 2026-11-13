@@ -33,6 +33,56 @@ function Profile() {
   );
 }
 
+const CANCEL_REASONS = ["Changed my mind", "Ordered by mistake", "Found a better price elsewhere", "Want to change size or colour", "Delivery is taking too long", "Need to change the delivery address", "Other"];
+
+function CancelOrder({ order }) {
+  const { updateOrder, notify } = useStore();
+  const [open, setOpen] = useState(false);
+  const [reason, setReason] = useState(CANCEL_REASONS[0]);
+  const [details, setDetails] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
+
+  const submit = async (e) => {
+    e.preventDefault();
+    setBusy(true);
+    setError("");
+    try {
+      const res = await fetch("/api/orders/cancel", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ orderNumber: order.id, phone: order.address?.phone, reason, details }) });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || data.message || "Could not cancel the order.");
+      updateOrder(order.id, { status: "Cancelled" });
+      notify("Your order has been cancelled");
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  if (!open) return <button type="button" onClick={() => setOpen(true)} className="text-xs uppercase tracking-[0.14em] underline underline-offset-4">Cancel order</button>;
+  return (
+    <form onSubmit={submit} className="mt-4 w-full max-w-md space-y-4 border border-ink/15 bg-white/70 p-4">
+      <div>
+        <label htmlFor={`cx-${order.id}`} className="label">Why are you cancelling?</label>
+        <select id={`cx-${order.id}`} value={reason} onChange={(e) => setReason(e.target.value)} className="input">
+          {CANCEL_REASONS.map((r) => <option key={r}>{r}</option>)}
+        </select>
+      </div>
+      <div>
+        <label htmlFor={`cd-${order.id}`} className="label">{reason === "Other" ? "Please tell us the reason" : "Anything else? (optional)"}</label>
+        <textarea id={`cd-${order.id}`} rows={2} maxLength={300} required={reason === "Other"} value={details} onChange={(e) => setDetails(e.target.value)} className="input py-3" />
+      </div>
+      {error && <p role="alert" className="text-sm text-terracotta-dark">{error}</p>}
+      <div className="flex items-center gap-4">
+        <button type="submit" disabled={busy} className="btn-dark min-h-[44px]">{busy ? "Cancelling…" : "Cancel my order"}</button>
+        <button type="button" onClick={() => setOpen(false)} className="text-sm underline">Keep order</button>
+      </div>
+      <p className="text-xs leading-5 text-ink-muted">Orders can be cancelled until they are packed. If you already paid online, we will refund you after the cancellation.</p>
+    </form>
+  );
+}
+
 function Orders() {
   const { orders } = useStore();
   if (!orders.length) return (
@@ -61,7 +111,10 @@ function Orders() {
           </ul>
           <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-ink/10 pt-4">
             <p className="font-medium">Total {formatPrice(o.total)}</p>
-            <Link href={`/account?tab=returns&order=${o.id}`} className="text-xs uppercase tracking-[0.14em] underline underline-offset-4">Return or exchange</Link>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+              {!o.demo && !/cancel|delivered/i.test(o.status || "") && <CancelOrder order={o} />}
+              <Link href={`/account?tab=returns&order=${o.id}`} className="text-xs uppercase tracking-[0.14em] underline underline-offset-4">Return or exchange</Link>
+            </div>
           </div>
         </li>
       ))}
